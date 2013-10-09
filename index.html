@@ -1,0 +1,42 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>IP Object Widget</title>
+	<script type="text/javascript">
+	var dojoConfig = {
+		async : false,
+		baseUrl : "resource/script",
+		tlmSiblingOfDojo : false,
+		cacheBust: true,
+		packages : [ {
+			name : "dojo",
+			location : "dojo"
+		}, {
+			name : "dijit",
+			location : "dijit"
+		}, {
+			name : "dojox",
+			location : "dojox"
+		} ]
+	};
+	</script>
+</head>
+<body>
+	<div id="wrapper">
+		<form action=".">
+			<div class="control">
+				<label for="">IP Object</label>
+				<!--<input type="text" data-dojo-type="workForDxy/IPObject" />-->
+			</div>
+		</form>
+	</div>
+
+	<script src="resource/script/dojo/dojo.js"></script>
+	<script>
+		require(['dojo/parser','dojo/ready!'],function(){
+			parser.parse();
+		});
+	</script>
+</body>
+</html>

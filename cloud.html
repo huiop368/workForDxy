@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>User Management</title>
+<script type="text/javascript">
+	var dojoConfig = {
+		async : false,
+		baseUrl : "resources/scripts/",
+		tlmSiblingOfDojo : false,
+		cacheBust: true,
+		packages : [ {
+			name : "dojo",
+			location : "dojo"
+		}, {
+			name : "dijit",
+			location : "dijit"
+		}, {
+			name : "dojox",
+			location : "dojox"
+		}, {
+			name : "ah",
+			location : "ah"
+		} ]
+	};
+</script>
+
+<style type="text/css">
+html,body {
+	height: 100%;
+	width:100%;
+}
+
+#preloader {
+	width: 100%;
+	height: 100%;
+	margin: 0;
+	padding: 0;
+	background: #fff
+		url('http://o.aolcdn.com/dojo/1.5/dojox/image/resources/images/loading.gif')
+		no-repeat center center;
+	position: absolute;
+	z-index: 999;
+}
+</style>
+
+<script type="text/javascript">
+	var hideLoader = function() {
+		dojo.fadeOut({
+			node : "preloader",
+			duration : 700,
+			onEnd : function(n) {
+				dojo.style(n, "display", "none");
+			}
+		}).play();
+	}
+
+</script>
+
+
+<link rel="stylesheet" href="resources/scripts/dojo/resources/dojo.css"
+	media="screen">
+<link rel="stylesheet" href="resources/scripts/dijit/themes/claro/claro.css"
+	media="screen">
+<link rel="stylesheet" href="resources/scripts/dojox/grid/resources/Grid.css" />
+<link rel="stylesheet" href="resources/scripts/dojox/grid/enhanced/resources/claro/EnhancedGrid.css" />
+<link rel="stylesheet" href="resources/scripts/dojox/grid/resources/claroGrid.css" />
+
+<meta name="viewport" content="width=device-width">
+<link rel="stylesheet" href="resources/styles/style-guide.css" />
+<link rel="stylesheet" href="resources/styles/1240_20_10_10.css" />
+<link rel="stylesheet" href="resources/styles/chosen.css" />
+<link rel="stylesheet" href="resources/styles/font-awesome.min.css" />
+<link rel="stylesheet" href="resources/styles/bootstrap.css" />
+<link rel="stylesheet" href="resources/styles/ace.min.css" />
+<link type="text/css" rel="stylesheet" href="resources/styles/content.css" />
+<link rel="stylesheet" href="resources/styles/ui.css" />
+<link rel="stylesheet" href="resources/styles/cloud3-style.css" />
+<link rel="stylesheet" href="resources/styles/buttons-style.css" />
+
+
+
+<script src="resources/scripts/ah/app/MockJSON.js"></script>
+</head>
+<body class="claro">
+	 <div id="preloader"></div> 
+	<div data-dojo-type="ah/comp/common/UserHomePage" style="width: 100%;margin:0 auto; height: 100%;overflow-y:scroll;"></div> 
+	
+	
+	
+	<!-- load Dojo -->
+	<!-- script src="resources/scripts/dojo/dojo.js" data-dojo-config="async: true"></script> -->
+	<script src="resources/scripts/dojo/dojo.js"></script>
+	<script src="resources/scripts/chosen-dojo.js"></script>
+	
+	<script>
+	
+	require([ "dojo/parser", "dojo/ready", "dijit/layout/BorderContainer",
+				"dijit/layout/TabContainer", "dijit/layout/ContentPane",
+				"dojo/store/Memory", "ah/comp/common/UserHomePage", "ah/comp/common/AHHeader", "ah/comp/common/AHFooter" ], function(
+				parser, ready) {
+			ready(function() {
+				parser.parse();
+				hideLoader();
+			});
+		});
+	</script>
+
+</body>
+</html>
