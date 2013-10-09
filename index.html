@@ -18,24 +18,33 @@
 		}, {
 			name : "dojox",
 			location : "dojox"
+		},{
+			name : "ah",
+			location : "ah"
 		} ]
 	};
 	</script>
+	<style type="text/css">
+		*{margin:0;padding:0}
+		body{font:12px/1.5 Arial;}
+	</style>
 </head>
 <body>
 	<div id="wrapper">
 		<form action=".">
 			<div class="control">
 				<label for="">IP Object</label>
-				<!--<input type="text" data-dojo-type="workForDxy/IPObject" />-->
+				<input type="text" data-dojo-type="ah/unit/IPObject" />
 			</div>
 		</form>
 	</div>
 
 	<script src="resource/script/dojo/dojo.js"></script>
 	<script>
-		require(['dojo/parser','dojo/ready!'],function(){
-			parser.parse();
+		require(['dojo/parser','dojo/ready'],function(parser,ready){
+			ready(function(){
+				parser.parse();
+			});
 		});
 	</script>
 </body>
