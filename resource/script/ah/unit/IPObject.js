@@ -41,8 +41,9 @@ define(['dojo/_base/declare','dijit/_WidgetBase','dijit/_TemplatedMixin','dojo/o
 			},
 
 			_rendUI : function(){
-				var	w = dojo.position(this.ipEl).w,
-					h = dojo.position(this.ipEl).h;	  
+				var	position = dojo.position(this.ipEl),
+					w = position.w,
+					h = position.h;	  
 				
 				// init ui style
 
@@ -61,13 +62,17 @@ define(['dojo/_base/declare','dijit/_WidgetBase','dijit/_TemplatedMixin','dojo/o
 
 
 				// normalize data to our need just for no match
-				//this.data.data = this.normalizeData(this.data);
+				// this.data.data = this.normalizeData(this.data);
 			},
 
 			_bindUI: function(){
+				// I am not sure if we need the focus event
 				this.own(
 					on(this.ipEl,'keyup',lang.hitch(this,this._handleKeyup)),
-					on(this.domNode,'.J-ip-item:click',lang.hitch(this,this._handleClickItem))	
+					on(this.ipEl,'focus',lang.hitch(this,this._handleFocus)),
+					on(this.domNode,'.J-ip-item:click',lang.hitch(this,this._handleClickItem)),
+					on(this.domNode,'click',lang.hitch(this,function(e){e.stopPropagation()})),
+					on(dojo.body(),'click',lang.hitch(this,function(){this._toggleList(0)}))	
 				);		 
 
 				// watch attributes 
@@ -76,13 +81,14 @@ define(['dojo/_base/declare','dijit/_WidgetBase','dijit/_TemplatedMixin','dojo/o
 			},
 
 			_handleKeyup : function(e){
-				//this.set('name','hello');
-				//console.log(this.get('name'));
 				var t = e.target,
 					val = lang.trim(t.value),
 					isEmpty = val == '',
 					s = !isEmpty ? 1 : 0;
-				
+					
+				// set status
+				this.set('ipsta',s);
+
 				// for cache
 				if(this._cache[val]){
 					this._setList(this._cache[val]);
@@ -96,14 +102,19 @@ define(['dojo/_base/declare','dijit/_WidgetBase','dijit/_TemplatedMixin','dojo/o
 				}
 
 				// for local data
-				if(this.data.data){
+				if(this.data.data.length){
 					// this._setList(this._cache[val] = this.makeListTmpl(this.data.data));
 					this._setList(this._cache[val] = this.makeListTmpl(this.normalizeData(this.matchData(val))));
 				}
-				
-				
-				// set status for ipMark
-				this.set('ipsta',s); 
+			},
+
+			_handleFocus : function(e){
+				var t = e.target,val = lang.trim(t.value),
+					f = val != '';
+
+				if(f && this.ipList.innerHTML){
+					this._toggleList(1);
+				}
 			},
 
 			_handleClickItem : function(e){
@@ -118,32 +129,28 @@ define(['dojo/_base/declare','dijit/_WidgetBase','dijit/_TemplatedMixin','dojo/o
 			},
 
 			_watchIpmark : function(attr,oldVal,newVal){
-				//dojo.toggleClass(this.ipMark,'ui-ip-inactive');			
-				//dojo.toggleClass(this.ipMark,'ui-ip-active');
 				var f = newVal == 1,
-					s1,s2;
+					ret = ['ui-ip-inactive','ui-ip-active'];
 				
-				f ? (s1 = 'ui-ip-inactive',s2 = 'ui-ip-active') : 
-					(s2 = 'ui-ip-inactive',s1 = 'ui-ip-active')
+				!f && ret.reverse();
 				
-				dojo.removeClass(this.ipMark,s1);
-				dojo.addClass(this.ipMark,s2);
+				dojo.removeClass(this.ipMark,ret[0]);
+				dojo.addClass(this.ipMark,ret[1]);
 			},
 
 			_watchIpsta : function(attr,oldVal,newVal){
 				var isZero = newVal == 0,
-					isOne = newVal == 1,
+					//isOne = newVal == 1,
 					isTwo = newVal == 2,
-					s1,s2;
+					ret = ['ui-ip-edit','ui-ip-save'];
 
-				isOne && (s1 = 'ui-ip-edit',s2 = 'ui-ip-save');
-				isTwo && (s2 = 'ui-ip-edit',s1 = 'ui-ip-save');
+				isTwo && ret.reverse();
 
 				this.ipSta.style.display = isZero ? 'none' : '';
 
 				if(!isZero){
-					dojo.removeClass(this.ipSta,s1);
-					dojo.addClass(this.ipSta,s2);
+					dojo.removeClass(this.ipSta,ret[0]);
+					dojo.addClass(this.ipSta,ret[1]);
 				}
 			},
 
@@ -178,9 +185,9 @@ define(['dojo/_base/declare','dijit/_WidgetBase','dijit/_TemplatedMixin','dojo/o
 			/**
 			 *@Helps
 			 *@Comments : you can override these methods by configs
+			 *@Or you can extend this widget , and override these methods.
 			 */
 			normalizeData : function(data){
-					//arr = [];
 				var	obj = {};
 
 				dojo.forEach(data,function(o,i){
@@ -190,7 +197,7 @@ define(['dojo/_base/declare','dijit/_WidgetBase','dijit/_TemplatedMixin','dojo/o
 					//(arr[type][label] || (arr[type][label] = [])).push(o);
 					(obj[label] || (obj[label] = [])).push(o);
 				});
-				//console.log(obj);
+				
 				return obj;
 			},
 
@@ -208,7 +215,7 @@ define(['dojo/_base/declare','dijit/_WidgetBase','dijit/_TemplatedMixin','dojo/o
 					  	arr.push(item);
 					  }
 				});			
-				//console.log(arr);
+				
 				return arr;
 			},
 
