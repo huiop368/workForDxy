@@ -27,6 +27,102 @@
 	<style type="text/css">
 		*{margin:0;padding:0}
 		body{font:12px/1.5 Arial;}
+		ul{list-style: none}
+		input[type="text"]{
+			font-family: 'Helvetica';
+			font-size: 13px;
+			color: #393939;
+			border-color: #CCCCCC;
+			border-width : 1px;
+			height: 20px;
+			padding: 4px 6px;
+			line-height: 20px;
+			width : 250px;
+		}
+		input:focus{
+			outline:none;
+			border-color:#4cb3df;
+		}
+
+
+		.ui-ip{
+			position: relative;
+		}
+
+		.ui-ip-list{
+			position:absolute;
+			width : 360px;
+			padding : 20px;
+			border : 1px solid #ddd;
+			font-size : 13px;
+		}
+
+		.ui-ip-sta,
+		.ui-ip-mark{
+			background-image: url(resource/img/ip-object.png);
+			background-repeat: no-repeat;
+		}
+		/*.ui-ip-input{
+			background-position: -54px -56px;
+		}*/
+		
+		.ui-ip-sta{
+			position: absolute;
+			width : 18px;
+			height: 16px;
+			top:5px;
+			right : 30px;
+		}
+		.ui-ip-mark{
+			position: absolute;
+			width : 26px;
+			height : 28px;
+			right : 1px;
+			top:1px;
+		}
+
+		.ui-ip-edit{
+			background-position: 0 -120px;
+		}
+		.ui-ip-save{
+			background-position: -30px -120px;
+		}
+
+		.ui-ip-inactive{
+			background-position: -54px -56px;
+		}
+		.ui-ip-active{
+			background-position: 0 0;
+		}
+
+		.ui-ip-list-item{
+			padding-bottom: 5px;
+			border-bottom: 1px solid #eee;
+		}
+
+		.ui-ip .item-title-wrap{
+			margin-bottom: 5px
+		}
+
+		.ui-ip .item-title{
+			color : #919193;
+			display: inline-block;
+			width: 200px;
+		}
+
+		.ui-ip .item-area{
+			color : #868686;
+		}
+
+		.ui-ip .item-area li{
+			padding : 5px 0 5px 200px;
+			cursor: pointer;
+		}
+
+		.ui-ip .item-area li:hover{
+			background-color: #fff9e7
+		}
+
 	</style>
 </head>
 <body>
@@ -41,9 +137,11 @@
 
 	<script src="resource/script/dojo/dojo.js"></script>
 	<script>
-		require(['dojo/parser','dojo/ready'],function(parser,ready){
+		require(['dojo/parser','dojo/ready','ah/unit/IPObject'],function(parser,ready,IPObject){
 			ready(function(){
 				parser.parse();
+
+				//var xx = new IPObject({'name' : 'wap'});
 			});
 		});
 	</script>
