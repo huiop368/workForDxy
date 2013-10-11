@@ -26,7 +26,7 @@
 	</script>
 	<style type="text/css">
 		*{margin:0;padding:0}
-		body{font:12px/1.5 Arial;}
+		body{font:12px/1.5 Arial;padding-left:50px}
 		ul{list-style: none}
 		input[type="text"]{
 			font-family: 'Helvetica';
@@ -35,10 +35,11 @@
 			border-color: #CCCCCC;
 			border-width : 1px;
 			height: 20px;
-			padding: 4px 6px;
+			//padding: 4px 6px;
+			padding : 4px 0;
 			line-height: 20px;
-			width : 250px;
 		}
+		.w250{width:250px}
 		input:focus{
 			outline:none;
 			border-color:#4cb3df;
@@ -55,6 +56,12 @@
 			padding : 20px;
 			border : 1px solid #ddd;
 			font-size : 13px;
+			z-index : 99;
+			background : #fff;
+		}
+		.ui-ip .ui-ip-input,
+		.ui-ip p{
+			width : 100%
 		}
 
 		.ui-ip-sta,
@@ -127,12 +134,12 @@
 </head>
 <body>
 	<div id="wrapper">
-		<form action=".">
-			<div class="control">
+			<div id="J-con" class="control" style="display:none">
 				<label for="">IP Object</label>
-				<input type="text" data-dojo-type="ah/unit/IPObject" />
+				<input type="text" name="hll" class="w250" data-dojo-type="ah/unit/IPObject" />
 			</div>
-		</form>
+			<button id="show">show</button>
+			<input id="J-hello" name="nn" class="w250 ui-input" data-dojo-type="dijit/form/TextBox" type="text" />
 		<br />
 		<br />
 		<br />
@@ -150,9 +157,15 @@
 	</div>
 
 	<script src="resource/script/dojo/dojo.js"></script>
+	<script type="text/javascript">
+		dojo.byId('show').onclick = function(){
+				dojo.byId('J-con').style.display = '';		
+				}
+	</script>
 	<script>
 		require(['dojo/parser','dojo/ready','ah/unit/IPObject'],function(parser,ready,IPObject){
 			ready(function(){
+				
 				parser.parse();
 
 				//var xx = new IPObject({'name' : 'wap'});

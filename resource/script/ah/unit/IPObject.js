@@ -44,19 +44,24 @@ define(['dojo/_base/declare','dijit/_WidgetBase','dijit/_TemplatedMixin','dojo/o
 
 			_rendUI : function(){
 				var	position = dojo.position(this.ipEl),
+					obj = dojo.getComputedStyle(this.ipEl),
+					style = dojo.getStyle(this.ipEl),
 					w = position.w,
-					h = position.h;	  
+					h = position.h,
+					ph = parseInt(obj.height);	  
+
+				//console.log(w,h,obj.width,obj.height,style);
 				
 				// init ui style
 
 				dojo.setStyle(this.ipElWrap,{
-					width : w + 'px',
+					//width : w + 'px',
 					position : 'relative'
 				});
 
 				dojo.setStyle(this.ipList,{
 					left : '0',
-					top : h - 1 +'px'
+					top : ph - 1 +'px'
 				});
 
 				this.ipSta.style.display = 'none';
