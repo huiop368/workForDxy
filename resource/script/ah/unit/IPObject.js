@@ -13,6 +13,8 @@ define(['dojo/_base/declare','dijit/_WidgetBase','dijit/_TemplatedMixin','dojo/o
 			
 			_cache : {},
 
+			time : 20,
+
 			data : {
 				data : [
 					{ip : '10.2.3.1',type : '0',label : 'IP Address or Hostname'},
@@ -60,7 +62,6 @@ define(['dojo/_base/declare','dijit/_WidgetBase','dijit/_TemplatedMixin','dojo/o
 				this.ipSta.style.display = 'none';
 				this.ipList.style.display = 'none';
 
-
 				// normalize data to our need just for no match
 				// this.data.data = this.normalizeData(this.data);
 			},
@@ -85,7 +86,10 @@ define(['dojo/_base/declare','dijit/_WidgetBase','dijit/_TemplatedMixin','dojo/o
 					val = lang.trim(t.value),
 					isEmpty = val == '',
 					s = !isEmpty ? 1 : 0;
-					
+				
+				this._timer && clearTimeout(this._timer);
+				//this._ajaxer && this._ajaxer.abort();
+
 				// set status
 				this.set('ipsta',s);
 
@@ -95,17 +99,22 @@ define(['dojo/_base/declare','dijit/_WidgetBase','dijit/_TemplatedMixin','dojo/o
 					return;
 				}
 				
-				// for ajax interface
-				if(this.url){
-					this._syncList(val);
-					return;
-				}
+				// not every type trigger event 
+				this._timer = setTimeout(lang.hitch(this,function(){
+				
+					// for ajax interface
+					if(this.url){
+						this._syncList(val);
+						return;
+					}
 
-				// for local data
-				if(this.data.data.length){
-					// this._setList(this._cache[val] = this.makeListTmpl(this.data.data));
-					this._setList(this._cache[val] = this.makeListTmpl(this.normalizeData(this.matchData(val))));
-				}
+					// for local data
+					if(this.data.data.length){
+						// this._setList(this._cache[val] = this.makeListTmpl(this.data.data));
+						this._setList(this._cache[val] = this.makeListTmpl(this.normalizeData(this.matchData(val))));
+					}
+
+				}),this.time);
 			},
 
 			_handleFocus : function(e){
@@ -168,7 +177,7 @@ define(['dojo/_base/declare','dijit/_WidgetBase','dijit/_TemplatedMixin','dojo/o
 				/**
 				 *@Example by jquery, would be replaced with dojo later
 				 *  var _self = this;
-				 *
+				 *	this._ajaxer = 
 				 *  $.ajax({
 				 *  	type : 'POST',
 				 *		url : this.url,
