@@ -1,0 +1,77 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<script type="text/javascript">
+	var dojoConfig = {
+		async : false,
+		baseUrl : "../resource/script",
+		tlmSiblingOfDojo : false,
+		cacheBust: true,
+		packages : [ {
+			name : "dojo",
+			location : "dojo"
+		}, {
+			name : "dijit",
+			location : "dijit"
+		}, {
+			name : "dojox",
+			location : "dojox"
+		},{
+			name : "ah",
+			location : "ah"
+		} ]
+	};
+	</script>
+</head>
+<body>
+
+
+	<script src="../resource/script/dojo/dojo.js"></script>
+	<script type="text/javascript">
+		require(['dojo/_base/declare'],function(declare){
+				var shape = declare(null,{
+					postscript : function(){
+						console.log('shape postscript');
+					},
+					setColor : function(){
+						console.log('shape set');
+					},
+					constructor : function(){
+						console.log('shape constructor');
+					}	
+				});
+
+				var color = declare(null,{
+					postscript : function(){
+						console.log('color postscript');
+					},
+					setColor : function(){
+						console.log('color set');
+					},
+					constructor : function(){
+						console.log('color constructor');
+					}	
+				});
+
+				var circle = declare([shape,color],{
+					postscript : function(){
+						//this.inherited();
+						console.log('circle postscript');
+					},
+					setColor : function(){
+						//this.inherited(arguments);
+						console.log('circle color set');
+					}/*,
+					constructor : function(){
+						console.log('circle constructor');
+					}*/	
+				});
+
+				var c = new circle();
+				c.setColor();
+		});
+	</script>
+</body>
+</html>
