@@ -134,12 +134,12 @@
 </head>
 <body>
 	<div id="wrapper">
-			<div id="J-con" class="control" style="display:none">
+			<div id="J-con" class="control">
 				<label for="">IP Object</label>
-				<input type="text" name="hll" class="w250" data-dojo-type="ah/unit/IPObject" />
+				<input type="text" name="hll" data-dojo-attach-point="ipobjec" class="w250" data-dojo-type="ah/unit/IPObject" />
 			</div>
 			<button id="show">show</button>
-			<input id="J-hello" name="nn" class="w250 ui-input" data-dojo-type="dijit/form/TextBox" type="text" />
+			<input id="J-hello" data-dojo-attach-point="testBox" name="nn" class="w250 ui-input" data-dojo-type="dijit/form/TextBox" type="text" />
 		<br />
 		<br />
 		<br />
@@ -157,9 +157,9 @@
 
 	<script src="resource/script/dojo/dojo.js"></script>
 	<script type="text/javascript">
-		dojo.byId('show').onclick = function(){
-				dojo.byId('J-con').style.display = '';		
-				}
+		//dojo.byId('show').onclick = function(){
+		//		dojo.byId('J-con').style.display = '';		
+		//		}
 	</script>
 	<script>
 		require(['dojo/parser','dojo/ready','ah/unit/IPObject'],function(parser,ready,IPObject){

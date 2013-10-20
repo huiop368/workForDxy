@@ -38,7 +38,7 @@ define(['dojo/_base/declare','dijit/_WidgetBase','dijit/_TemplatedMixin','dojo/o
 				this.inherited(arguments);
 
 				this._rendUI();
-
+				// console.log(this.dojoAttachPoint);
 				this._bindUI();
 			},
 

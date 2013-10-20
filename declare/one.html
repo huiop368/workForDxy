@@ -32,6 +32,7 @@
 	<script type="text/javascript">
 		require(['dojo/_base/declare'],function(declare){
 				var shape = declare(null,{
+					shape : 'rect',
 					postscript : function(){
 						console.log('shape postscript');
 					},
@@ -44,6 +45,8 @@
 				});
 
 				var color = declare(null,{
+					color : 'red',
+					r : 10,
 					postscript : function(){
 						console.log('color postscript');
 					},
@@ -56,21 +59,22 @@
 				});
 
 				var circle = declare([shape,color],{
+					r : 20,
 					postscript : function(){
-						//this.inherited();
-						console.log('circle postscript');
+						console.log('circle postscript',this.constructor.prototype.setColor());
 					},
 					setColor : function(){
-						//this.inherited(arguments);
 						console.log('circle color set');
 					}/*,
 					constructor : function(){
 						console.log('circle constructor');
-					}*/	
+					}*/
 				});
 
 				var c = new circle();
-				c.setColor();
+				
+				//c.setColor();
+				console.log(c);
 		});
 	</script>
 </body>
