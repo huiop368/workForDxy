@@ -1,0 +1,45 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<script type="text/javascript">
+	var dojoConfig = {
+		async : false,
+		baseUrl : "../resource/script",
+		tlmSiblingOfDojo : false,
+		cacheBust: true,
+		packages : [ {
+			name : "dojo",
+			location : "dojo"
+		}, {
+			name : "dijit",
+			location : "dijit"
+		}, {
+			name : "dojox",
+			location : "dojox"
+		},{
+			name : "ah",
+			location : "ah"
+		} ]
+	};
+	</script>
+	<script src="../resource/script/dojo/dojo.js"></script>
+</head>
+<body>
+
+	<input type="text" name="" data-dojo-type="ah/comp/unit/TextboxList" />
+
+	<script>
+		require(['dojo/parser','dojo/ready','ah/unit/IPObject'],function(parser,ready,IPObject){
+			ready(function(){
+				
+				parser.parse();
+
+				//var xx = new IPObject({'name' : 'wap'});
+			});
+		});
+	</script>
+</body>
+</html>
+
