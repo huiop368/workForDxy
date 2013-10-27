@@ -25,13 +25,37 @@
 	};
 	</script>
 	<script src="../resource/script/dojo/dojo.js"></script>
+
+	<style type="text/css">
+	
+.textboxlist { font: 11px "Lucida Grande", Verdana; cursor: text; width : 400px}
+.textboxlist-tags { zoom: 1; overflow: hidden; margin: 0; padding: 3px 4px 0; border: 1px solid #999; *padding-bottom: 3px; }
+.textboxlist-tag { list-style-type: none; float: left; display: block; padding: 0; margin: 0 5px 3px 0; cursor: default; }
+.textboxlist-tag-editable { border: 1px solid #fff; }
+.textboxlist-tag-editable-input { border: 0; padding: 2px 0; *padding-bottom: 0; height: 14px; font: 11px "Lucida Grande", Verdana; }
+.textboxlist-tag-editable-input:focus { outline: 0; }
+.textboxlist-tag-box { position: relative; line-height: 18px; padding: 0 5px; -moz-border-radius: 9px; -webkit-border-radius: 9px; border-radius: 9px; border: 1px solid #CAD8F3; background: #DEE7F8; cursor: default; }
+.textboxlist-tag-box:hover{background: #BBCEF1; border: 1px solid #6D95E0;}
+.textboxlist-tag-box-deletable { padding-right: 15px; }
+.textboxlist-tag-box-deletebutton { position: absolute; right: 4px; top: 6px; display: block; width: 7px; height: 7px; font-size: 1px; background: url('http://www.devthought.com/wp-content/projects/mootools/textboxlist/Source/close.gif'); }
+.textboxlist-tag-box-deletebutton:hover { border: none; background-position: 7px; text-decoration: none; }
+.textboxlist-tag-box-hover { background: #BBCEF1; border: 1px solid #6D95E0; }
+.textboxlist-tag-box-focus { border-color: #598BEC; background: #598BEC; color: #fff; }
+.textboxlist-tag-box-focus .textboxlist-tag-box-deletebutton { background-position: bottom; }
+
+/***************/
+.w300{width:300px}
+.textboxlist-tag-editable-input{width:80px}
+
+	</style>
 </head>
 <body>
 
-	<input type="text" name="" data-dojo-type="ah/comp/unit/TextboxList" />
+	<input type="text" value="hello,wppp" class="w300" name="" data-dojo-type="ah/unit/TextboxList" />
+	<input type="text" value="peng,vikas" class="w300" name="" data-dojo-type="ah/unit/TextboxList" />
 
 	<script>
-		require(['dojo/parser','dojo/ready','ah/unit/IPObject'],function(parser,ready,IPObject){
+		require(['dojo/parser','dojo/ready'],function(parser,ready){
 			ready(function(){
 				
 				parser.parse();
