@@ -35,13 +35,14 @@
 					shape : 'rect',
 					postscript : function(){
 						console.log('shape postscript');
+						console.log(this.constructor.prototype);
 					},
 					setColor : function(){
 						console.log('shape set');
-					},
+					}/*,
 					constructor : function(){
 						console.log('shape constructor');
-					}	
+					}	*/
 				});
 
 				var color = declare(null,{
@@ -71,10 +72,12 @@
 					}*/
 				});
 
-				var c = new circle();
+				console.log(new shape());
+
+				//var c = new circle();
 				
 				//c.setColor();
-				console.log(c);
+				//console.log(c);
 		});
 	</script>
 </body>

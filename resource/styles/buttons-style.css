@@ -1,0 +1,94 @@
+/* ======================Buttons ================== */
+
+
+.btn{
+	border: none !important;
+	text-shadow: none !important;
+	height: 30px !important;
+	line-height: 30px !important;	
+	padding: 0 20px !important;
+	font-size: 12px !important;	
+	letter-spacing: 1px !important;	
+	margin-right: 15px;
+}
+
+.btn:last-child{
+	margin-right: 0 !important;
+}
+
+.btn:active{
+	
+}
+
+.btn-primary{
+	background-color: #0093d1 !important;
+}
+.btn-primary:hover{
+	background-color: #0184bb !important;
+}
+.btn-secondary{
+	background-color: #7fc9e8 !important;
+}
+.btn-secondary:hover{
+	background-color: #0093d1 !important;
+}
+.btn-cancel{
+	background-color: #d1cec3 !important;
+}
+
+.btn-cancel:hover{
+	background-color: #beb9aa !important;
+}
+
+.btn-3{
+	background-color: #f5f4f2 !important;
+	border: solid 1px #dedcd4 !important;
+	color: #4c687f !important;
+}
+
+.btn-3:hover{
+	background-color: #dedcd4 !important; 
+	color: #002849;
+}
+
+.btn-orange{
+	background-color: #f8bf70 !important;
+}
+.btn-orange:hover {
+	background: #f5a433 !important;
+}
+.btn-combo{
+	position: relative;
+}
+.btn-combo .btn-combo-inline{
+	display: inline-block;
+}
+
+.btn-combo-drop-down{
+	min-width: 100%;
+	position: absolute;
+	top: 30px;
+	left: 0;
+	z-index: 5555;
+	border: solid 3px #0093d1;
+	overflow: hidden;
+}
+.btn-combo-list a{
+	width: 100%;
+	border-bottom: 1px solid #0093d1 !important;
+	text-align: left;
+	background-color: #f5f4f2 !important;
+	color: #4c687f !important;
+}
+.btn-combo-list a:hover{
+	background-color: #dedcd4 !important; 
+}
+.btn-drop-down{
+	background: url("../images/btn-drop-down-arrow.png") #0093d1 no-repeat !important;
+	line-height: 30px !important;
+	width: 30px;
+	height: 30px !important;
+	text-align: center;
+	padding:  0 0 !important;
+	margin: 0 0 0 -3px;
+}

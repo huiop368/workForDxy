@@ -1,0 +1,272 @@
+
+
+.wrapper{
+	width: 1024px; /* 1014px - 10% for margins */
+    margin: 0 auto;
+    padding: 15px 0;
+}
+
+/*
+p{
+	font-size: 1em;
+	line-height: 18px;
+	color: #a39c97;
+	margin: 0 0 20px 0;
+}
+*/
+
+strong{
+	color: #000;
+	font-weight: bold;
+}
+
+hr{	
+	height: 1px;
+	border-bottom: none;
+	border-top: 1px solid #e8e4e1;
+	border-left: none;
+	border-right: none;
+	margin: 30px 0;
+}
+/*
+ul, ol{
+	padding: 0 0;
+	margin: 0 0;
+	list-style: none;;
+}*/
+
+.offset-box-text{
+	padding-left: 20px;
+}
+/*=================================HEADER TAGS ===================================*/
+
+h1{font-size: 1.6em; color: #333; text-transform: uppercase; letter-spacing: 1px; margin: 0 0 24px 0;}
+h2{font-size: 1.4em; color: #333; margin: 0 0 22px 0;}
+h3{font-size: 1.2em; color: #333; margin: 0 0 20px 0;}
+h4{font-size: 1.1em; color: #333; margin: 0 0 18px 0;}
+h5{font-size: 1.0em; color: #333; text-transform: uppercase; letter-spacing: 1px; margin: 0 0 16px 0;}
+/*
+h3 a:link{
+	color: #019491;
+	text-decoration: none;
+}*/
+/*=================================LINKS==========================================*/
+/*
+a:link{
+	color: #019491;
+	text-decoration: none;
+	
+}
+a:visited{
+	color: #019491;
+	text-decoration: none;
+	
+}
+a:hover{
+	color: #63ccca;
+	text-decoration: none;
+	
+}*/
+/*=======================Active Button1 Style starts here==========================*/
+.button1-active a:link{
+	display: block;
+	background-color: #0093D1;
+	padding: 15px 15px;
+	text-decoration: none;
+	color: #fff;
+	text-align: center;
+	font-size: 1em;
+	letter-spacing: 1px;
+	
+}
+
+.button1-active a:visited{
+	color: #fff;
+}
+
+.button1-active a:hover{
+	text-decoration: none;
+	background-color: #00AAF3;
+	color: #fff;
+}
+
+.button1-active a:active{
+	text-decoration: none;
+	background-color: #008ECB;
+	color: #5EAED0;
+}
+
+/*=======================Active Button1 Style ends here==========================*/
+
+
+
+/*=======================Active Button2 Style ends here==========================*/
+
+/*=======================Inactive Button Style starts here==========================*/
+.button-inactive{
+	display: block;
+	background-color: #d4d4d6;
+	padding: 15px 15px;
+	text-decoration: none;
+	color: #aeaeae;
+	text-align: center;
+	font-size: 1em;
+	letter-spacing: 1px;
+	-moz-border-radius: 6px;
+	-webkit-border-radius:6px;
+	border-radius: 6px;
+}
+
+
+/*=======================Inactive Button Style ends here==========================*/
+
+/*=================================CUSTOM STYLE================================*/
+#headerlight{
+    padding: 10px 0;
+    background-color: #F2F2F2;
+    border-bottom: solid 0.5px #000;
+    border-top: solid 0.5px #000;
+    }
+    
+    
+#header{
+	padding: 10px 0;
+	background-color: #6F6F6F;
+	
+    /*border-bottom: solid 1px #000;*/
+}
+#header-container{
+	padding: 30px 0;
+	 background-color: #0093D1;
+	border-bottom: solid 1px #006c6a;
+	position: relative;
+}
+
+#sidebar-element
+    {padding: 30px 0;
+    }
+    
+#header-container p, #header-container h1{
+	color: #fff;
+}
+
+#features-container{
+	padding: 30px 0;
+	background-color: #ebe7e4;
+	
+	border-top: solid 1px #fff;
+	border-bottom: solid 1px #a39c97;
+}
+
+#features-container p{
+	color: #333;
+}
+#content{padding: 30px 0;
+    position: relative;
+}
+#footer{
+	padding: 30px 0;
+	margin: 0 0;
+	padding: 20px 0;
+	background-color: #ebe7e4;
+	border-top: solid 1px #a39c97;
+	border-bottom: solid 1px #a39c97;
+}
+#footer h5{color: #a39c97;}
+#footer hr{
+	border-color: #000;
+}
+
+#copyright{padding: 30px 20px; background-color: #ebe7e4; border-top: solid 1px #fff;
+}
+#sidebar{
+padding: 30px 20px; 
+background-color: rgb(245,244,242) !important; 
+border-top: solid 1px #fff;
+width: 189px !important;
+border-right: 0px !important;
+
+}
+ 
+ 
+#learnmore{ position: relative; top: -12px; }
+ 
+#learnmore_first { position:relative; top: 0px; }
+ 
+ 
+.margin-top-twenty {
+    margin-top:20px !important; 
+    position: relative;
+    top: 30px;
+    left: 100px;
+}
+
+.free-trial-button-container {
+    margin-bottom: 30px !important;
+}
+ 
+.free-trial-button {
+    left: 0px;
+    bottom: 25px;
+}
+
+.service-offering-desc {
+	color:#FFF;
+}
+
+.resources-element{
+	margin-top:10px;
+}
+
+.login-button {
+    display: inline-block;
+width: 60px;
+margin-top:5px;
+padding-top:0px;
+}
+
+.login-button a:link {
+	padding: 5px;
+
+}
+
+.member-login-msg {
+color: #FFFFFF/*#a39c97*/;
+vertical-align: middle;
+margin-right: 5px;
+text-transform: uppercase;
+font-size:90%;
+ 
+}
+ 
+.member-login-user {
+    margin-right:5px;
+ 
+}
+ 
+#sidebar {
+	position: relative !important;
+	background-color: none !important;
+}
+
+.right-sidebar-title{font-weight: bold; font-size: 1.1em; color: #333; text-transform: uppercase; letter-spacing: 1px; margin: 0 0 16px 0; }
+.landing-page-header{font-weight: bold; font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif; font-size: 3.4em; color: #333; text-transform: uppercase; letter-spacing: 1px; margin: 0 0 24px 0; line-height:100%}
+.landing-page-title{font-weight: bold; font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;}
+.right-sidebar-content{font-size: 89%;}
+#right-content{ line-height: 2.0em; font-size: 90%}
+.boldit {
+	font-weight: bold;
+}
+
+.offset_cloud {padding-left: 15px; }    
+
+.see-all-button{margin-right: 10px !important;}
+
+.padding-header-picture{padding-right: 0px;}
+
+.offset-freetrial{   margin-left: 25.659574%;
+}
+
+.devmode {
+	display: none;
+}

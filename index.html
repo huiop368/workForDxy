@@ -5,10 +5,10 @@
 	<title>IP Object Widget</title>
 	<script type="text/javascript">
 	var dojoConfig = {
-		async : false,
+		async : true,
 		baseUrl : "resource/script",
-		tlmSiblingOfDojo : false,
-		cacheBust: true,
+		//tlmSiblingOfDojo : false,
+		//cacheBust: true,
 		packages : [ {
 			name : "dojo",
 			location : "dojo"
@@ -135,7 +135,7 @@
 <body>
 	<div id="wrapper">
 		<!--<div data-dojo-type="ah/configuration/TestIPObject"></div>-->
-		<div data-dojo-type="ah/configuration/testDTL"></div>
+		<div data-dojo-type="ah/unit/Upload"></div>
 	</div>
 
 	<script src="resource/script/dojo/dojo.js"></script>
@@ -145,7 +145,7 @@
 		//		}
 	</script>
 	<script>
-		require(['dojo/parser','dojo/ready'],function(parser,ready){
+		require(['dojo/parser','dojo/ready','dojo/store/Memory','dojo/data/ObjectStore'],function(parser,ready,Memory,ObjectStore){
 			ready(function(){
 				
 				parser.parse();

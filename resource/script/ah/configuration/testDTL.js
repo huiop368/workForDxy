@@ -1,12 +1,31 @@
-define(['dojo/_base/declare','dijit/_WidgetBase','dijit/_Widget','dijit/_TemplatedMixin','dojox/dtl/_base','dojox/dtl/_DomTemplated','dojox/dtl/_Templated','dojo/on','dojo/_base/lang'],
-	function(declare,_WidgetBase,_Widget,_TemplateMixin,_base,_DomTemplated,_Templated,on,lang){
+define(['dojo/_base/declare','dijit/_WidgetBase','dijit/_TemplatedMixin','dojo/on','dojo/_base/lang',
+		'dojo/store/Memory','dojo/data/ObjectStore'
+		],
+	function(declare,_WidgetBase,_TemplateMixin,on,lang,Memory,ObjectStore){
 
-		return declare('ah/configuration/testDTL',[_WidgetBase,_Templated],{
-			templateString : '<div>I like eat {{ fruit }}</div>',
-			
+		return declare('ah/configuration/testDTL',[_WidgetBase],{
+
 			postCreate : function(){
-				this.fruit = 'apple';
-				this.render();
+				var data = [
+					{id : '1',name:'wp'},
+					{id : '2',name:'nn'},
+					{id : '3',name:'xx'}
+				],
+				memory = new Memory({data : data}),
+				store = new ObjectStore({
+					objectStore : memory
+				});
+
+				console.log(store);
+
+				store.save({id:'2',name : 'cjn'});
+
+				console.log(store);
+
+				store.changing({id:'2',name : 'cjn'});
+				
+				console.log(store);
 			}
+			
 		});
 });

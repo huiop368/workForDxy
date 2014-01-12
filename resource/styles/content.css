@@ -1,0 +1,3639 @@
+/* =================================Textbox Ace Override====================================== */
+
+
+ul{
+ list-style-type:none;	
+}
+textarea:focus,input[type="text"]:focus,input[type="password"]:focus,input[type="datetime"]:focus,input[type="datetime-local"]:focus,input[type="date"]:focus,input[type="month"]:focus,input[type="time"]:focus,input[type="week"]:focus,input[type="number"]:focus,input[type="email"]:focus,input[type="url"]:focus,input[type="search"]:focus,input[type="tel"]:focus,input[type="color"]:focus {
+    box-shadow: none;
+    border-color: none;
+}
+input[type=checkbox]:hover+.lbl::before,input[type=radio]:hover+.lbl::before,input[type=checkbox]+.lbl:hover::before,input[type=radio]+.lbl:hover::before
+    {
+    border-color: #999;
+}
+ 
+select:focus {
+box-shadow: none;
+border-color: none;
+    }
+    
+input:focus, textarea:focus { 
+    
+    outline: none !important; }
+    
+        
+input[type=checkbox].ace-checkbox-2:checked+.lbl::before {
+    background-color: none;
+    border-color: none;
+    color: none;
+    }
+ 
+.control-group.success input:focus,.control-group.success select:focus,.control-group.success textarea:focus
+{box-shadow: none;
+    color: none;
+    border-color: none;
+}
+ 
+.control-group.info input:focus,.control-group.info select:focus,.control-group.info textarea:focus
+{
+    box-shadow: none;
+    color: none;
+    border-color: none;
+}
+ 
+.control-group.error input:focus,.control-group.error select:focus,.control-group.error textarea:focus
+{
+    box-shadow: none;
+    color: none;
+    border-color: none;
+}
+.control-group.warning input:focus,.control-group.warning select:focus,.control-group.warning textarea:focus
+    {
+    box-shadow: none;
+    color: none;
+    border-color: none;
+}
+ 
+ 
+
+/* =================================Body Structure======================================*/
+/*
+p {
+	color: black;
+}
+*/
+
+.nav-container {
+	width: 1220px;
+	height: 38px;
+	margin: 0 auto;
+	overflow: hidden;
+}
+
+.container {
+	margin-right: auto;
+	margin-left: auto;
+	*zoom: 1;
+}
+
+/*=================================HEADER======================================*/
+.headerlight {
+	background-color: #F2F2F2;
+	border-bottom: solid 0.5px #000;
+	border-top: solid 0.5px #000;
+	*position: relative;
+	*z-index: 2;
+	overflow: visible;
+}
+
+#header {
+	padding: 5px 0;
+	background-color: #4C687F;
+	/*border-bottom: solid 1px #000;*/
+}
+
+
+.user-info {
+	float: right;
+	margin-top: 10px;
+}
+
+.user-login-msg {
+	color: #FFFFFF /*#fff*/;
+	vertical-align: middle;
+}
+
+.user-login-user {
+	margin-right: 20px;
+	font-weight: bold;
+}
+
+#logout {
+	color: #7fc9e8;
+}
+
+.logo {
+	overflow: hidden;
+	float: left;
+	display: inline;
+	width: 166px;
+}
+
+
+/*============================Header Navigation Bar===================================*/
+.nav {
+	margin-bottom: 20px;
+	list-style: none;
+}
+
+.headerlight .nav {
+	position: relative;
+	left: 0;
+	display: block;
+	float: left;
+}
+
+.headerlight .nav>li {
+	float: left;
+}
+
+.headerlight .nav.pull-right {
+	float: right;
+	margin-right: 0;
+}
+.light-nav {
+	height: 100%;
+}
+
+.light-nav>li {
+	line-height: 30px;
+	border-left: 1px solid #DDD;
+	padding: 0;
+	padding-left: 0px;
+	margin-right: 0px;
+	position: relative;
+}
+
+.light-nav>li>a {
+	display: inline-block;
+	padding: 4px 30px;
+	text-decoration: none;
+	font-weight: normal;
+	letter-spacing: 1px;
+}
+
+.light-nav-last {
+	line-height: 30px;
+	border-right: 1px solid #DDD;
+	position: relative;
+	
+}
+
+
+
+.nav-text {
+	text-transform: uppercase;
+	letter-spacing: 1px;
+	font-weight: bold;
+}
+
+.unselectable {
+	-moz-user-select: -moz-none;
+	-khtml-user-select: none;
+	-webkit-user-select: none;
+	-o-user-select: none;
+	user-select: none;
+}
+
+ul.tabs>li>a:link{
+	color: #717174;
+}
+ul.tabs>li>a:hover {
+	background: #FFF;
+}
+
+li.inactive-tab a {
+	color: #717174;
+}
+
+li.active-tab {
+	background: #FFF;
+}
+
+li.active-tab a {
+	color: black;
+}
+
+
+.checkbox.inline+.checkbox.inline {
+	margin-left: 23px;
+}
+
+.form-horizontal .control-label {
+	text-align: left;
+	/*float: none !important;
+	width: 100% !important;*/
+	margin-top: 0 !important;
+	margin-bottom: 0 !important;
+	
+}
+
+#hivestore{
+	color: #0093d1;
+	text-transform: uppercase;	
+}
+
+/*=====Header =======================*/
+.input-policy {
+	width: 300px;
+	-webkit-border-radius: 0px;
+	-moz-border-radius: 0px;
+	-o-border-radius: 0px;
+}
+
+
+
+.slider-title-text {
+	margin-left: 27px;
+	margin-right: 20px;
+	display: inline-block;
+}
+
+.logged-user {
+	line-height: 40px;
+	margin-right: 30px;
+	vertical-align: middle;
+}
+
+.header-navigation {
+	background-color: #f6f4f3;
+}
+
+.nav-menu-item {
+	display: inline-block;
+	height: 33px;
+	padding: 0 20px 0 20px;
+	line-height: 33px;
+	text-transform: uppercase;
+	color: #54615E;
+	font-weight: bold;
+}
+
+.hive-store-option {
+	float: right;
+}
+
+.nav-fixed {
+	position: fixed;
+	top: 0;
+	width: 100%;
+	z-index: 999999;
+}
+
+.nav-fixed .wizard-steps .title {
+	display: none;
+}
+
+
+/*==============================Configuration Wizard Navigation===================================*/
+
+.config-wizard-page-title {
+	background-color: white;
+	color: #b5b5b5;
+	line-height: 45px;
+	vertical-align: middle;
+	padding-left: 15px;
+	font-weight: bold;
+	padding-top: 19px;
+}
+.config-nav-previous-step {
+	width: 16px;
+    padding-right: 12px;
+    float: left;
+    background-color: #f5f4f2;
+    line-height: /*86px*/ 78px;
+    vertical-align: middle;
+    padding-left: 26px;
+}
+
+.config-nav-next-step {
+	 width: 14px;
+    float: left;
+    background-color: #f5f4f2;
+    line-height: 78px;
+    vertical-align: middle;
+    padding-left: 12px;
+    padding-right: 27px;
+}
+
+.nav-fixed .config-nav-previous-step {
+	line-height: 67px;
+}
+
+.nav-fixed .config-nav-next-step {
+	line-height: 67px;
+}
+
+.wizard-header {
+	line-height: 40px;
+	vertical-align: middle;
+	/*width: 1206px;*/
+}
+
+.wizard-steps li {
+	display: block;
+	 width: 266px;
+    line-height: /*40px*/ 35px;
+	background-color: #f5f4f2;
+	cursor: pointer;
+}
+
+.wizard-steps li:before {
+	top: 30px !important;
+	border-top: none;
+}
+
+.wizard-steps li .step {
+	text-align: center;
+	border: none;
+	text-transform: none;
+	font-weight: normal;
+	color: #717174;
+	border-radius: 0;
+	line-height: 12px;
+	padding: 10px 0 !important;
+	position: relative;
+	z-index: 2;
+	display: inline-block;
+	background-color: transparent;
+}
+
+.wizard-steps li .title {
+	display: block;
+	margin-top: -21px !important;
+	max-width: 100%;
+	text-align: center;
+	text-transform: none;
+	font-weight: normal;
+	color: #0093d1;
+	z-index: 104;
+	text-align: center;
+	table-layout: fixed;
+	word-wrap: break-word;
+	 position: relative;
+    top: 3px;
+}
+
+.wizard-steps li:first-child .title {
+	text-align: left;
+}
+
+.wizard-steps li:last-child .title {
+	text-align: right;
+}
+
+.wizard-steps li.active .title {
+	color: #f5a433;
+}
+
+.configwizard-prev {
+	width: 50px;
+	height: 80px;
+	display: inline-block;
+	vertical-align: middle;
+	background-color: #f5f4f2;
+}
+
+.configwizard-next {
+	width: 50px;
+	height: 80px;
+	display: inline-block;
+	vertical-align: middle;
+	background-color: #f5f4f2;
+}
+
+.configwizard-laststep {
+	width: 166px;
+}
+
+
+.config-navigation-icons {
+	background: url(../images/config-wizard-nav-images.png) no-repeat top
+		left;
+	display: inline-block;
+}
+
+.config-nav01_policy_detail {
+	background-position: 0 0;
+	width: 155px;
+	height: 40px;
+}
+
+.active .config-nav01_policy_detail {
+	background-position: 0 -90px;
+	width: 155px;
+	height: 40px;
+}
+
+.config-nav01_security_detail_01 {
+	background-position: 0 -180px;
+	width: 152px;
+	height: 40px;
+}
+
+.config-nav02_wireless_connectivity {
+	background-position: 0 -270px;
+	width: 270px;
+	height: 40px;
+}
+
+.active .config-nav02_wireless_connectivity {
+	background-position: 0 -360px;
+	width: 270px;
+	height: 40px;
+}
+
+.active .config-nav03-wired_connectivity {
+	background-position: 0 -450px;
+	width: 270px;
+	height: 40px;
+}
+
+.config-nav03-wired_connectivity {
+	background-position: 0 -540px;
+	width: 270px;
+	height: 40px;
+}
+
+.config-nav04_additional_settings {
+	background-position: 0 -630px;
+	width: 270px;
+	height: 40px;
+}
+
+.active .config-nav04_additional_settings {
+	background-position: 0 -720px;
+	width: 270px;
+	height: 40px;
+}
+
+.config-nav05_select_devices {
+	background-position: 0 -810px;
+	width: 155px;
+	height: 40px;
+}
+
+.active .config-nav05_select_devices {
+	background-position: 0 -900px;
+	width: 155px;
+	height: 40px;
+}
+
+.config-navnext-innactive {
+	background-position: 0 -1064px;
+	width: 15px;
+	height: 24px;
+}
+
+.config-navnext-active {
+	background-position: 0 -1138px;
+	width: 15px;
+	height: 23px;
+}
+
+.config-navnext-active:hover {
+	background-position: 0 -990px;
+	width: 15px;
+	height: 23px;
+}
+
+.config-navprevous-innactive {
+	background-position: 0 -1286px;
+	width: 15px;
+	height: 23px;
+}
+
+.config-nav-prevous {
+	background-position: 0 -1360px;
+	width: 15px;
+	height: 23px;
+}
+
+.config-nav-prevous:hover {
+	background-position: 0 -1212px;
+	width: 15px;
+	height: 23px;
+}
+
+/*============================User Profile Icons===================================*/
+
+
+.user-profile-sprite-icons {
+	background: url(../images/userprofileSprite.png) no-repeat top left;
+	display: inline-block;
+}
+
+.userprofile-SSID-icon-blue{ background-position: 0 0; width: 17px; height: 12px; } 
+.userprofile-SSID-icon-gray{ background-position: 0 -62px; width: 17px; height: 12px; } 
+.userprofile-close_x-while{ background-position: 0 -124px; width: 9px; height: 9px; } 
+.userprofile-close_x{ background-position: 0 -183px; width: 9px; height: 9px; }
+.userprofile-cloud-gray{ background-position: 0 -242px; width: 16px; height: 11px; }
+.userprofile-icn-padding{padding-right: 15px;}
+.userprofile-users-icon{ background-position: 0 -303px; width: 18px; height: 14px; }
+
+
+.userprofile-x-align{
+	position: relative;
+	left: 3px;
+}
+.admin-form-row {
+	margin: 10px 0 10px 20px;
+	vertical-align: middle;
+}
+
+.admin-header {
+	line-height: 40px;
+	vertical-align: middle;
+	border-bottom: 1px solid #CCC;
+}
+
+.admin-nav-menu {
+	line-height: 60px;
+	vertical-align: middle;
+}
+
+.admin-form-row label {
+	vertical-align: middle;
+	display: inline-block;
+	width: 200px;
+}
+
+.admin-form-row .align-top {
+	vertical-align: top;
+}
+
+.admin-form-row .non-header-label {
+	color: #666;
+	font-weight: normal;
+	width: auto;
+	line-height: 30px;
+}
+
+.ah-dijit-input {
+	width: 220px;
+}
+
+.applayout {
+	height: 100%;
+	margin: 0 auto;
+}
+
+#leftCol {
+	width: 14em;
+}
+
+.claro .demoLayout .edgePanel {
+	background-color: #d0e9fc;
+}
+
+#viewsChart {
+	width: 550px;
+	height: 550px;
+}
+
+.ui-widget-header {
+	border-bottom: 1px solid #8894a8;
+}
+
+.tab-container {
+	height: 30px;
+	margin-bottom: 2px;
+}
+
+.account-management-content {
+	float: left;
+	width: 700px;
+	border-left: 1px solid #dfdfdf;
+	padding-left: 20px;
+}
+
+.tab-name {
+	width: 145px;
+	line-height: 30px;
+	float: left;
+	border: 1px solid #8894a8;
+	padding-left: 15px;
+	cursor: pointer;
+	text-align: center;
+}
+
+.hidden {
+	display: none;
+}
+
+.active-tab {
+	background-color: #8894a8;
+	color: white;
+}
+
+.ui-jqgrid tr.jqgrow td {
+	height: 30px;
+	vertical-align: middle;
+}
+
+.margin-left-twenty {
+	margin-left: 20px;
+}
+
+.no-border-radius {
+	border-radius: 0;
+}
+
+.homepage-section {
+	width: 300px;
+	float: left;
+	margin-right: 20px;
+	margin-top: 50px;
+	background: #EEEEEE; /* Old browsers */
+	background: -moz-linear-gradient(top, #EEEEEE 50%, #FFFFFF 100%);
+	/* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(50%, #EEEEEE),
+		color-stop(100%, #FFFFFF)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top, #EEEEEE 50%, #FFFFFF 100%);
+	/* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top, #EEEEEE 50%, #FFFFFF 100%);
+	/* Opera 11.10+ */
+	background: -ms-linear-gradient(top, #EEEEEE 50%, #FFFFFF 100%);
+	/* IE10+ */
+	background: linear-gradient(to bottom, #EEEEEE 50%, #FFFFFF 100%);
+	/* W3C */
+}
+
+.dashboard-text {
+	border-bottom: 1px solid #eeeeee;
+	padding-bottom: 5px;
+}
+
+.homepage-ssid-list {
+	width: 200px;
+}
+
+.homepage-guesttypes-list {
+	width: 200px;
+}
+
+.homepage-guesttypes-list li {
+	line-height: 30px;
+}
+
+.homepage-ssid-list li {
+	line-height: 30px;
+}
+
+.homepage-ssid-list li a {
+	float: right;
+	font-weight: bold;
+}
+
+.homepage-delegate-list {
+	width: 200px;
+}
+
+.homepage-delegate-list li {
+	line-height: 30px;
+}
+
+.homepage-delegate-list .float-right {
+	float: right;
+}
+
+.homepage-delegate-list .action {
+	margin-left: 10px;
+}
+
+.ah-identity-icons {
+	background: url(../images/ah-identity-icons.png) no-repeat top left;
+	display: inline-block;
+	vertical-align: middle;
+}
+
+.AH-logo {
+	background-position: 0 0;
+	width: 120px;
+	height: 45px;
+}
+
+.ah-bg-sidenav {
+	background-position: 0 -95px;
+	width: 7px;
+	height: 9px;
+	position: absolute;
+	left: 185px;
+	top: 10px;
+}
+
+.ah-bg-pointer {
+	background-position: 0 -95px;
+	width: 7px;
+	height: 9px;
+	vertical-align: middle;
+	margin-right: 10px;
+	margin-bottom: 2px;
+}
+
+.ah-bg-pointer:hover {
+	background-position: 0 -154px;
+}
+
+.current .ah-bg-sidenav {
+	background-position: 0 -154px;
+}
+
+.ah-bg-sidenav:hover {
+	background-position: 0 -154px;
+}
+
+.ah-bg {
+	background-position: 0 -213px;
+	width: 410px;
+	height: 351px;
+}
+
+.ah-glyphicons-halflings-white {
+	background-position: 0 -614px;
+	width: 469px;
+	height: 159px;
+}
+
+.ah-glyphicons-halflings {
+	background-position: 0 -823px;
+	width: 469px;
+	height: 159px;
+}
+
+.ah-guest-icon:hover {
+	background-position: 0 -1032px;
+	width: 12px;
+	height: 12px;
+}
+
+.ah-hive-bg {
+	background-position: 0 -1094px;
+	width: 358px;
+	height: 439px;
+}
+
+.ah-icon-Manage-guest {
+	background-position: 0 -1583px;
+	width: 112px;
+	height: 70px;
+	margin: -60px 94px 20px 94px;
+	position: relative;
+}
+
+.homepage-navmenu-contents {
+	float: right;
+	padding-bottom: 0;
+	width: 100%;
+	margin-bottom: 40px;
+	border-bottom: 1px solid #CCC;
+	text-align: right;
+}
+
+.homepage-menu-item {
+	display: inline-block;
+	padding: 0 20px 8px 20px;
+	position: relative;
+}
+
+.homepage-menu-item a:link {
+	color: #8894a8;
+}
+
+.homepage-menu-item a:hover {
+	color: #ffa10e;
+}
+
+.homepage-menu-item.current {
+	border-bottom: 4px solid #ffa10e;
+	color: #ffa10e;
+}
+
+.homepage-menu-item.current:after {
+	content: '';
+	display: block;
+	position: absolute;
+	top: 22px;
+	left: 45%;
+	width: 0;
+	height: 0;
+	border-left: 6px solid transparent;
+	border-right: 6px solid transparent;
+	border-bottom: 6px solid #ffa10e;
+}
+
+.ah-icon-bulk {
+	background-position: 0 -1703px;
+	width: 15px;
+	height: 15px;
+	padding-left: 5px;
+	padding-right: 5px;
+	margin-bottom: 2px;
+}
+
+.ah-icon-connect {
+	background-position: 0 -1768px;
+	width: 99px;
+	height: 70px;
+	margin: -60px 100px 20px 100px;
+	position: relative;
+}
+
+.ah-icon-delegate {
+	background-position: 0 -1888px;
+	width: 70px;
+	height: 70px;
+	margin: -60px 115px 20px 115px;
+	position: relative;
+}
+
+.ah-icon-export {
+	background-position: -519px 0;
+	width: 15px;
+	height: 14px;
+	padding-left: 5px;
+	padding-right: 5px;
+	margin-bottom: 2px;
+}
+
+.ah-icon-group {
+	background-position: -519px -64px;
+	width: 21px;
+	height: 13px;
+	margin: -8px 10px 0 0;
+}
+
+.ah-icon-group:hover {
+	background-position: -519px -127px;
+	width: 21px;
+	height: 13px;
+	margin: -8px 10px 0 0;
+}
+
+.ah-icon-hive-manager {
+	background-position: -519px -190px;
+	width: 111px;
+	height: 71px;
+	margin-left: 70px;
+	margin-right: 40px;
+	float: left;
+}
+
+.ah-icon-hive {
+	background-position: -519px -311px;
+	width: 16px;
+	height: 15px;
+	margin-right: 10px;
+}
+
+.current .ah-icon-hive {
+	background-position: -519px -376px;
+}
+
+.ah-icon-hive:hover {
+	background-position: -519px -376px;
+}
+
+.ah-icon-settings {
+	background-position: -519px -1004px;
+	width: 16px;
+	height: 17px;
+	margin-right: 10px;
+}
+
+.side-nav li:hover .ah-icon-settings {
+	background-position: -519px -1071px;
+}
+
+.current .ah-icon-settings {
+	background-position: -519px -1071px;
+}
+
+.ah-icon-id-manager {
+	background-position: -519px -441px;
+	width: 111px;
+	height: 71px;
+	margin-left: 70px;
+	margin-right: 40px;
+	float: left;
+}
+
+.ah-icon-import {
+	background-position: -519px -562px;
+	width: 14px;
+	height: 12px;
+	padding-left: 5px;
+	padding-right: 5px;
+	margin-bottom: 2px;
+}
+
+.ah-icon-info {
+	background-position: -519px -624px;
+	width: 14px;
+	height: 14px;
+	vertical-align: middle;
+	margin-left: 10px;
+}
+
+.ah-icon-info:hover {
+	background-position: -519px -688px;
+}
+
+.ah-icon-issue {
+	background-position: -519px -752px;
+	width: 15px;
+	height: 12px;
+	vertical-align: -1px;
+	margin-left: 5px;
+}
+
+.error {
+	font-style: italic;
+	color: red;
+}
+
+.ah-icon-new {
+	background-position: -519px -814px;
+	width: 13px;
+	height: 13px;
+	padding-left: 5px;
+	padding-right: 5px;
+	margin-bottom: 2px;
+}
+
+.ah-icon-remove {
+	background-position: -519px -877px;
+	width: 13px;
+	height: 13px;
+	padding-left: 5px;
+	padding-right: 5px;
+	margin-bottom: 2px;
+}
+
+.ah-icon-reset {
+	background-position: -519px -940px;
+	width: 14px;
+	height: 14px;
+	padding-left: 5px;
+	padding-right: 5px;
+	margin-bottom: 2px;
+}
+
+.ah-icon-user {
+	background-position: -519px -1138px;
+	width: 12px;
+	height: 12px;
+	margin: -8px 10px 0 0;
+}
+
+.marginb-40 {
+	margin-bottom: 40px;
+}
+
+/*Changed this below a bit*/
+.option-support {
+	font-style: italic;
+	color: grey;
+	padding-left: 30px;
+	padding-top: 5px;
+}
+
+.label-support {
+	color: grey;
+	padding-left: 15px;
+}
+
+.support-inline {
+	padding-left: 0px;
+}
+
+
+
+label,input,button,select,textarea {
+	font-weight: normal;
+}
+
+.cli-checkbox {
+	line-height: 30px;
+}
+
+.tunnelsource-control {
+	padding-top: 5px;
+	color: black;
+}
+
+#label-text {
+	color: grey;
+	padding-left: 0px;
+}
+
+#firewall-label-text {
+	color: grey;
+	margin-left: 0px;
+}
+
+/*=====================Button=====================*/
+.btn {
+	border: 0px;
+}
+
+.btn-dim {
+	background-color: #7fc9e8 !important;
+	border-color: #7fc9e8;
+}
+
+.btn-cancel {
+	background-color: #D1CEc3 !important;
+	border-color: #D1CEc3;
+}
+
+.btn-primary {
+	background-color: #0093d1 !important;
+	border-color: #0093d1;
+}
+
+.btn-small {
+	padding: 0 20px;
+	height: 30px;
+	line-height: 24px;
+	border-width: 4px;
+	/*border-width: 4px;*/
+	font-weight: bold;
+	border-width: 0px;
+}
+
+.btn-primary:hover {
+	background-color: #1881c7 !important;
+}
+
+.btn-dim:hover {
+	background-color: /*#045E9F*/ #0093d1 !important;
+}
+
+.btn-cancel:hover {
+	background-color: #beb9aa !important;
+}
+
+
+.btn-plus {
+	background-color: #F5F4F1 !important;
+	border-color: #F5F4F1;
+	padding: 0 10px;
+}
+
+.btn-copy {
+	background-color: #7fc9e8 !important;
+	border-color: #7fc9e8;
+	padding: 0 10px !important;
+}
+
+.btn-copy-qos {
+	background-color: #7fc9e8 !important;
+	border-color: #7fc9e8;
+	padding: 0 15px !important;
+	height: 25px;
+}
+
+/* ====================Table in Quality of Service ======================== */
+ul.inline.traffic-table>li,ol.inline.traffic-table>li {
+	display: inline-block;
+	*display: inline;
+	width: 260px;
+	padding-left: 0px;
+	padding-top: 10px;
+	padding-right: 10px;
+	*zoom: 1;
+	font-weight: bold;
+	text-align: left;
+}
+
+ul.inline.content>li {
+	display: inline-block;
+	*display: inline;
+	width: 130px;
+	padding-left: 5px;
+	padding-bottom: 5px;
+	padding-top: 5px;
+	*zoom: 1;
+	padding-top: 5px;
+}
+
+ul.inline.traffic-content>li {
+	display: inline-block;
+	*display: inline;
+	width: 244px;
+	padding-left: 15px;
+	*zoom: 1;
+	padding-top: 5px;
+	padding-bottom: 5px;
+}
+
+.traffic-content:hover {
+	background-color: #FFF7E5;
+}
+
+/*================Firewall List ================= */
+.nav-pills>li>a {
+	padding-top: 8px;
+	padding-bottom: 8px;
+	margin-top: 2px;
+	margin-bottom: 2px;
+	-webkit-border-radius: 0px;
+	-moz-border-radius: 0px;
+	border-radius: 0px;
+	text-decoration: none;
+}
+
+.header-color-lightgrey {
+	background: #F8F8F6;
+	border-color: #F8F8F6;
+}
+
+.header-color-lightgrey+.widget-body {
+	border-color: #aaa;
+}
+
+.header-color-trafficblue {
+	background: #8093A4;
+	border-color: #8093A4;
+}
+
+.header-color-trafficblue+.widget-body {
+	
+}
+
+.header-color-darkgrey {
+	background: #DFDCD5;
+	border-color: #DFDCD5;
+}
+
+.header-color-darkgrey+.widget-body {
+	border-color: #aaa;
+}
+
+.widget-toolbar:before {
+	border-right: 0px solid;
+}
+
+/*============================== Selectable Tabs================================ */
+ul.tabs{
+	padding: 0 0;
+	margin: 0 0;
+}
+ul.tabs>li>a:hover {
+	background: #FFF;
+}
+
+li.active-tab {
+	background: #FFF;
+}
+
+.checkbox.inline+.checkbox.inline {
+	margin-left: 23px;
+}
+
+.inline-policy {
+	margin-left: 90px !important;
+}
+
+.form-horizontal .control-label {
+	text-align: left;
+}
+
+.form-horizontal .traffic-label {
+	text-align: left;
+	margin-left: 0px;
+}
+
+/* =========Textbox Sizes========== */
+.tiny-box {
+	width: 45px;
+}
+
+.small-box {
+	width: 85px;
+}
+
+.medium-box {
+	width: 100px;
+}
+
+.tunnel-exception-box {
+	width: 124px;
+}
+
+.tunnel-source-box {
+	width: 185px;
+}
+
+.large-box {
+	width: 140px;
+}
+
+.large-textbox {
+	width: 291px;
+}
+
+.half-large {
+	width: 225px;
+}
+
+.textbox-access {
+	width: 211px;
+}
+
+.traffic-roaming {
+	width: 400px;
+}
+
+.extra-large {
+	width: 450px;
+}
+
+.large-list {
+	width: 300px;
+}
+
+/*========Form Labels/Chekboxes========*/
+.radio,.checkbox {
+	padding-left: 0px;
+}
+
+.traffic-form {
+	padding-left: 20px;
+	margin-top: -20px;
+}
+
+.traffic-label {
+	float: left;
+	width: 165px;
+}
+
+.offset-form {
+	margin-left: 50px;
+}
+
+.schedule-box1 {
+	width: 500px;
+}
+
+.schedule-box2 {
+	width: 400px;
+}
+
+.availability-schedule-list {
+	height: 300px;
+	width: 400px;
+	text-align: center;
+}
+
+.availability-schedule-droparea {
+	height: 200px;
+	width: 200px;
+	border: 1px dashed #CCC;
+	margin-top: 50px;
+	line-height: 200px;
+	text-align: center;
+	margin-left: 110px;
+	margin-bottom: 20px;
+}
+
+h5 {
+	position: relative;
+	/*margin-top: 20px;*/
+	text-transform: none;
+	letter-spacing:0.5px;
+}
+
+h5.one {
+	margin-top: 0;
+	text-indent: 0px;
+	font-weight: bold;
+}
+
+h5.ssid {
+	margin-bottom: 20px;
+}
+
+h5.one:before {
+	content: "";
+	display: block;
+	border-top: solid 1px lightgrey;
+	width: 100%;
+	height: 1px;
+	position: absolute;
+	top: 50%;
+	z-index: 1;
+	left: 0px;
+}
+
+h5.one span {
+	background: #fff;
+	padding-left: 6px;
+	padding-right: 6px;
+	position: relative;
+	z-index: 5;
+}
+
+.offset-policy {
+	margin-left: 2.5%;
+	color: grey;
+}
+
+/*=======Policy Details Configuration Navigation=======*/
+.well {
+	padding: 0px;
+}
+
+.nav-list>li.active>a,.nav-list>li.active>a:hover,.nav-list>li.active>a:focus
+	{
+	background-color: #FFF;
+	color: lightgrey;
+	font-weight: bold;
+}
+
+.nav-list>li.active:after {
+	border-right: 0px solid #0B6CBC;
+}
+
+.nav-list>li.active>a:after,.nav-list>li.active.open>.submenu>li.active>a:after
+	{
+	border-right-color: #FFF;
+}
+
+.row-fluid{
+	width: 1220px;
+}
+.row-fluid .span-policy {
+	width: 215px;
+}
+
+.policy-details-navtitle {
+	color: #A6A6A6;
+	font-weight: bold;
+	padding-bottom: 5px;
+	padding-left: 30px;
+	 margin-bottom: 5px;
+}
+
+.clientSLA {
+	padding-left: 15px;
+}
+
+.row-fluid .span6-1 {
+	width: 510px;
+	margin-left: 0px;
+}
+
+.row-fluid .span5-2 {
+	width: 410px;
+	margin-left: 120px;
+}
+
+.row-fluid .span5-1 {
+	width: 400px;
+	margin-left: 0px;
+}
+
+.firewall-table-header {
+	color: #717174;
+	font-weight: bold;
+}
+
+.firewall-table {
+	color: #5F5F61;
+}
+
+}
+
+/* ======== Blue Button Selection ========== */
+.nav-pills>.active>a,.nav-pills>.active>a:hover,.nav-pills>.active>a:focus
+	{
+	background-color: #0093d1;
+}
+
+a:link {
+	color: #0093d1;
+	text-decoration: none;
+}
+
+a:visited {
+	text-decoration: none;
+	color: #0093d1;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+/*=======================Traffic Checkbox Label Spacing====================== */
+input[type=checkbox]+.lbl::before,input[type=radio]+.lbl::before {
+	margin-right: 10px;
+	margin-top: 0px;
+}
+
+input[type=checkbox]+.lbl::before,input[type=radio]+.lbl::before {
+	border: 1px solid #999;
+}
+
+input[type=checkbox]:checked+.lbl::before, input[type=radio]:checked+.lbl::before{
+	border: 1px solid #0093d1;
+}
+
+
+input[type=checkbox]:checked+.lbl.switch-label::before{
+	border: 2px solid #0093d1 !important;
+}
+
+.bloc {
+	display: inline-block;
+	vertical-align: top;
+	overflow: hidden;
+	border: solid lightgrey 1px;
+}
+
+.bloc select {
+	padding: 10px;
+	margin: -5px -20px -5px -5px;
+	width: 375px;
+}
+
+.traffic-label-password {
+	float: left;
+	width: 197px;
+}
+
+/*Traffic Special Form Label*/
+
+
+.controls>.radio:first-child,.controls>.checkbox:first-child {
+	padding-top: 0px;
+}
+
+.radio.inline,.checkbox.inline {
+	padding-top: 0px;
+}
+
+
+
+.control-group .qos-marking {
+	margin-top: 20px;
+}
+
+
+
+#unit-text {
+	color: grey;
+	padding-left: 10px;
+}
+
+.unit-text {
+	color: grey;
+	font-style: italic;
+}
+
+.traffic-table-header {
+	color: grey;
+	font-weight: bold;
+}
+
+/*==========================SSID Page=============================*/
+.radio-SSID-first {
+	padding-top: 0px;
+	margin-bottom: 0px;
+}
+
+.radio-SSID {
+	padding-left: 0px;
+	padding-top: 15px;
+	margin-bottom: 0px;
+}
+/*table action menu*/
+.table-action-icons {
+	background: url(../images/tableActionIcons.png) no-repeat top left;
+	width: 33px;
+	height: 24px;
+	display: inline-block;
+	vertical-align: middle;
+}
+
+.table-add {
+	background-position: 0 0;
+}
+
+.table-add:hover {
+	background-position: 0 -74px;
+}
+
+.table-edit-table {
+	background-position: 0 -148px;
+}
+
+.table-edit-table:hover {
+	background-position: 0 -222px;
+}
+
+.table-edit {
+	background-position: 0 -296px;
+}
+
+.table-edit:hover {
+	background-position: 0 -370px;
+}
+
+.table-remove {
+	background-position: 0 -444px;
+}
+
+.table-remove:hover {
+	background-position: 0 -518px;
+}
+
+.table-settings {
+	background-position: 0 -592px;
+}
+
+.table-settings:hover {
+	background-position: 0 -666px;
+}
+
+.table-align-right-icon {
+	float: right;
+	margin-top: 8px;
+}
+
+.grid-action-menu {
+	width: 100%;
+}
+
+.grid-action-menu-title{
+	font-size: 21px;
+	line-height: 40px;
+	color: #333;
+	border-bottom: 1px solid #e5e5e5;
+}
+
+.grid-action-menu-list {
+	list-style-type: none;
+	line-height: 40px;
+}
+
+.grid-action-menu-list-item {
+	display: inline-block;
+	margin-left: 6px;
+	cursor: pointer;
+}
+.grid-action-menu-list-item:first-child{
+		margin-left: 0;
+	
+}
+.grid-header-small-text {
+	margin-left: 10px;
+	font-style: italic;
+	color: #beb9aa;
+	font-size: 12px;
+}
+
+/*===============overriding ace-min================== */
+.widget-header {
+	text-align: left;
+}
+
+/*================overriding dojo grid css================== */
+.claro .dojoxGrid {
+	font-family: 'Helvetica';
+	border: 0px solid transparent;
+	border-bottom: 1px solid #d1c3c3;
+}
+
+.claro .dojoxGridCellFocus {
+	border: 0px solid transparent !important;
+	border: 0px solid transparent;
+	border-bottom: 1px solid #d1c3c3 !important;
+}
+
+.claro .dojoxGridRowSelected .dojoxGridRowTable tr {
+	background-color: #fff8ea;
+}
+
+.claro .dojoxGridDoubleAffordance .dojoxGridRowOver .dojoxGridCellOver {
+	border: solid 1px #769dc0;
+	background-color: #fff8ea;
+	border-collapse: separate; /*FF*/
+}
+
+.claro .dojoxGridRowOver .dojoxGridCell {
+	background: #fff8ea;
+}
+
+.claro .dojoxGridHeader .dojoxGridCellOver {
+	background: #7493a4;
+}
+
+.claro .dojoxGridRowSelected .dojoxGridCell {
+	
+}
+
+.left-nav-spacing {
+	margin-bottom: -3px;
+	padding-left: 10px;
+}
+
+.claro .dojoxGridMasterHeader {
+	background: #7493a4;
+	color: #FFF;
+	font-family: 'Helvetica';
+	border: 0px solid transparent;
+}
+
+.claro .dojoxGridSortNode {
+	margin-top: 2px;
+	margin-left: 3px;
+}
+
+.claro .dojoxGridCellOver .dojoxGridSortNode {
+	background: #7493a4;
+}
+
+.claro .dojoxGridCellFocus {
+	
+}
+
+.claro .dojoxGrid .dojoxGridCell {
+	outline: none;
+	padding: 3px 5px;
+	border: 1px solid transparent;
+	border-color: transparent transparent #E5DAC8 transparent;
+	height: 28px;
+}
+
+/*=================================Left nav icon set================================ */
+.left-nav-icon-set {
+	background: url(../images/configLeftNavIcons.png) no-repeat top left;
+	display: inline-block;
+}
+
+.leftnav-AH-switch-port-wan {
+	background-position: 0 0;
+	width: 30px;
+	height: 30px;
+}
+
+.leftnav-access_point-gray {
+	background-position: 0 -80px;
+	width: 16px;
+	height: 16px;
+}
+
+.leftnav-access_point-white {
+	background-position: 0 -146px;
+	width: 16px;
+	height: 16px;
+}
+
+.leftnav-access_point {
+	background-position: 0 -212px;
+	width: 16px;
+	height: 16px;
+}
+
+.leftnav-arrow-down {
+	background-position: 0 -278px;
+	width: 11px;
+	height: 11px;
+	position: absolute;
+	right: 10px;
+	top: 10px;
+}
+
+.leftnav-arrow-right {
+	background-position: 0 -339px;
+	width: 11px;
+	height: 11px;
+	position: absolute;
+	right: 15px;
+	top: 10px;
+}
+
+.leftnav-close_x {
+	background-position: 0 -400px;
+	width: 9px;
+	height: 9px;
+}
+
+.leftnav-corporate {
+	background-position: 0 -459px;
+	width: 20px;
+	height: 20px;
+}
+
+.leftnav-dot_gray {
+	background-position: 0 -529px;
+	width: 8px;
+	height: 8px;
+	margin-right: 10px;
+}
+
+.config-wizard-nav-element-selected-span .leftnav-dot_gray,
+.config-wizard-nav-element-selected .leftnav-dot_gray{
+	background-position: 0 -587px;
+	width: 8px;
+	height: 8px;
+	margin-right: 10px;
+}
+
+.config-wizard-nav-element-selected-span .userprofile-close_x{
+	background-position: 0 -124px; width: 9px; height: 9px; 
+}
+
+
+
+.leftnav-hive_symbole {
+	background-position: 0 -645px;
+	width: 125px;
+	height: 125px;
+}
+
+.leftnav-phone {
+	background-position: 0 -820px;
+	width: 20px;
+	height: 20px;
+}
+
+.leftnav-port {
+	background-position: 0 -890px;
+	width: 29px;
+	height: 14px;
+}
+
+.leftnav-router-gray {
+	background-position: 0 -954px;
+	width: 16px;
+	height: 16px;
+}
+
+.leftnav-router-white {
+	background-position: 0 -1020px;
+	width: 16px;
+	height: 16px;
+}
+
+.leftnav-switches-gray {
+	background-position: 0 -1086px;
+	width: 16px;
+	height: 16px;
+}
+
+.leftnav-switches-white {
+	background-position: 0 -1152px;
+	width: 16px;
+	height: 16px;
+}
+
+.leftnav-test {
+	background-position: 0 -1218px;
+	width: 20px;
+	height: 20px;
+}
+
+.leftnav-usb_port {
+	background-position: 0 -1288px;
+	width: 30px;
+	height: 9px;
+}
+
+.leftnav-vpn-gray {
+	background-position: 0 -1347px;
+	width: 16px;
+	height: 16px;
+}
+
+.leftnav-vpn-white {
+	background-position: 0 -1413px;
+	width: 16px;
+	height: 16px;
+}
+
+.config-wizard-nav-sub-element.config-wizard-nav-element-selected-span,
+.config-wizard-nav-sub-element.config-wizard-nav-element-selected {
+	background-color: #0093d1;
+	color: white;
+}
+
+.config-wizard-nav-caption.config-wizard-nav-caption-element-selected-span {
+	background-color: #0093d1;
+	color: white;
+}
+
+
+
+.config-wizard-nav-element-selected-span {
+	cursor: pointer;
+}
+
+.config-wizard-nav-element {
+	border-bottom: 1px solid #CCC;
+	cursor: pointer;
+}
+
+.config-wizard-nav-element.config-wizard-nav-element-selected-span {
+	background-color: #0093d1;
+	color: white;
+}
+
+.config-wizard-nav-caption {
+	line-height: 45px;
+	color: #717174;
+	border-bottom: 1px solid #d1cec3;
+	vertical-align: middle;
+	padding-left: 15px;
+	font-weight: bold;
+	cursor: pointer;
+	text-transform: uppercase;
+	position: relative;
+}
+
+.config-wizard-nav-caption .leftnav-arrow-down {
+	top: 15px;
+}
+
+.config-wizard-nav-caption .leftnav-arrow-right {
+	top: 15px;
+}
+
+.left-nav-option-seperator {
+	border-bottom: 1px solid #d1cec3;
+}
+
+.config-wizard-nav-sub-element {
+	line-height: 30px;
+	vertical-align: middle;
+	color: #717174;
+	cursor: pointer;
+	padding-left: 15px;
+	position: relative;
+	border-bottom: 1px solid #CCC;
+	
+}
+.config-wizard-nav-sub-element-title{
+	color:#0093d1;
+}
+
+.config-wizard-nav-caption{
+	line-height: 30px;
+	vertical-align: midle;
+	color: #717174;
+	cursor: pointer;
+	padding-left: 15px;
+	position: relative;
+}
+
+.config-wizard-nav-caption.config-wizard-nav-caption-element-selected-span {
+	background-color: #0093d1;
+	color: white;
+	width: 98%;
+}
+.config-wizard-left-nav-wrap,
+.config-wizard-left-nav {
+	width: 220px;
+	float: left;
+	height: 100%;
+	position: absolute;
+	background-color: #FAFAF9;
+}
+.config-wizard-left-nav-wrap{
+	background-color: #fff;
+}
+.config-wizard-left-nav-inner{
+	background-color: #FAFAF9;
+	border-right: 2px solid #ccc;
+	height : 100%;
+}
+
+.config-wizard-content-area {
+	width: 980px;
+	float: left;
+	margin-left: 220px;
+	/*border-left: 2px solid #CCC;*/
+}
+
+.config-wired-wizard-content-area {
+	width: 945px;
+	float: left;
+	margin-left: 250px;
+	margin-bottom: 20px;
+}
+
+/*===================Button/Form Spacing=================== */
+.button-spacing {
+	padding-left: 15px;
+}
+
+#policy-unit-text {
+	color: grey;
+	padding-top: 4px;
+}
+
+.form-horizontal .right-controls {
+	*display: inline-block;
+	margin-left: 180px;
+	*margin-left: 0;
+}
+
+.form-padding {
+	padding-left: 10px;
+}
+
+.spacing-20 {
+	margin-bottom: 20px;
+}
+
+.schedule-radio-spacing {
+	margin-bottom: 16px;
+}
+
+.spacing-30 {
+	margin-bottom: 30px;
+}
+
+.ssid-keyvalue {
+	width: 90px;
+	float: left;
+}
+
+.spacing-90 {
+	margin-left: 90px;
+}
+
+label,select,button,input[type="button"],input[type="reset"],input[type="submit"],input[type="radio"],input[type="checkbox"]
+	{
+	cursor: default;
+}
+
+input[type="text"]:focus,input[type="password"]:focus,textarea:focus,select:focus
+	{
+	border: 1px solid #0093d1;
+	outline: none !important;
+}
+
+input[type="text"],textarea,input[type="password"] {
+	font-family: 'Helvetica';
+	color: #717174;
+	border-color: #999;
+}
+
+hr {
+	margin: 10px 0;
+	border: 0;
+	border-top: 1px solid #eeeeee;
+	border-bottom: 1px solid #ffffff;
+}
+
+.hr-table {
+	margin: 0px;
+	margin-bottom: -2px;
+}
+
+
+
+ul.inline>li,ol.inline>li {
+	padding-right: 10px;
+}
+
+.ssid-password-checkbox {
+	margin-top: 10px !important;
+}
+
+.cli-password-checkbox {
+	margin-top: 20px !important;
+}
+
+.checkbox-control-label {
+	margin-left: 20px;
+}
+
+.margin-bottom-30 {
+	margin-bottom: 30px !important;
+}
+
+.cli-margin {
+	margin-bottom: 0px;
+	line-height: 30px;
+}
+
+.textbox-space {
+	padding-left: 20px;
+}
+
+.access-spacing {
+	margin-bottom: 10px !important;
+}
+
+.form-buttons {
+	margin-right: 85px;
+}
+
+.ipfirewall-left {
+	width: 393px;
+	float: left;
+	min-height: 1px;
+	margin-left: 20px;
+}
+
+.ipfirewall-right {
+	width: 410px;
+	float: left;
+	min-height: 1px;
+	margin-left: 20px;
+	margin-top: 10px;
+}
+
+.firewall-control {
+	margin-left: 160px !important;
+}
+
+/*==========================device template page=========================*/
+.port-list .port-element {
+	margin-right: 8px;
+}
+
+.port-number {
+	display: inline-block;
+	text-align: center;
+	width: 30px;
+}
+
+.port-types {
+	height: 30px;
+	width: 30px;
+	float: left;
+	background-color: #dedcd4;
+	text-align: center;
+	line-height: 37px;
+	vertical-align: bottom;
+	margin-right: 10px;
+}
+
+.port-element .wired-device-icons {
+	border: 2px solid transparent;
+}
+
+.wired-device-icons {
+	background: url(../images/deviceTemplateIcons.png) no-repeat top left;
+	display: inline-block;
+}
+
+.wired-AH-switch-port-wan {
+	background-position: 0 0;
+	width: 30px;
+	height: 30px;
+}
+
+.wired-AH-switch-port-wan:hover,.wired-AH-switch-port-wan:active {
+	border: 2px solid #0093d1;
+}
+
+.wired-access_point-gray {
+	background-position: 0 -80px;
+	width: 16px;
+	height: 16px;
+}
+
+.wired-access_point-white {
+	background-position: 0 -146px;
+	width: 16px;
+	height: 16px;
+}
+
+.wired-access_point {
+	background-position: 0 -212px;
+	width: 16px;
+	height: 16px;
+}
+
+.wired-advanced-settings {
+	background-position: 0 -278px;
+	width: 16px;
+	height: 17px;
+}
+
+.wired-arrow-down {
+	background-position: 0 -345px;
+	width: 11px;
+	height: 11px;
+}
+
+.wired-arrow-right {
+	background-position: 0 -406px;
+	width: 11px;
+	height: 11px;
+}
+
+.wired-close_x {
+	background-position: 0 -467px;
+	width: 9px;
+	height: 9px;
+}
+
+.wired-corporate-gray {
+	background-position: 0 -526px;
+	width: 20px;
+	height: 20px;
+}
+
+.wired-corporate {
+	background-position: 0 -596px;
+	width: 20px;
+	height: 20px;
+}
+
+.wired-dot_gray {
+	background-position: 0 -666px;
+	width: 8px;
+	height: 8px;
+}
+
+.wired-dot_white {
+	background-position: 0 -724px;
+	width: 8px;
+	height: 8px;
+}
+
+.wired-hive_symbole {
+	background-position: 0 -782px;
+	width: 125px;
+	height: 125px;
+}
+
+.wired-phone-gray {
+	background-position: 0 -957px;
+	width: 20px;
+	height: 20px;
+}
+
+.wired-phone {
+	background-position: 0 -1027px;
+	width: 20px;
+	height: 20px;
+}
+
+.wired-port-corporate {
+	background-position: 0 -1097px;
+	width: 30px;
+	height: 30px;
+}
+
+.wired-port {
+	background-position: 0 -1177px;
+	width: 29px;
+	height: 14px;
+}
+
+.wired-port_phone {
+	background-position: 0 -1241px;
+	width: 30px;
+	height: 30px;
+}
+
+.wired-port_test {
+	background-position: 0 -1321px;
+	width: 30px;
+	height: 30px;
+}
+
+.wired-router-gray {
+	background-position: 0 -1401px;
+	width: 16px;
+	height: 16px;
+}
+
+.wired-router-white {
+	background-position: 0 -1467px;
+	width: 16px;
+	height: 16px;
+}
+
+.wired-switches-gray {
+	background-position: 0 -1533px;
+	width: 16px;
+	height: 16px;
+}
+
+.wired-switches-white {
+	background-position: 0 -1599px;
+	width: 16px;
+	height: 16px;
+}
+
+.wired-test-gray {
+	background-position: 0 -1665px;
+	width: 20px;
+	height: 20px;
+}
+
+.wired-test {
+	background-position: 0 -1735px;
+	width: 20px;
+	height: 20px;
+}
+
+.wired-usb_port {
+	background-position: 0 -1805px;
+	width: 30px;
+	height: 9px;
+}
+
+.wired-vpn-gray {
+	background-position: 0 -1864px;
+	width: 16px;
+	height: 16px;
+}
+
+.wired-vpn-white {
+	background-position: 0 -1930px;
+	width: 16px;
+	height: 16px;
+}
+
+/*===============================Slider css=========================== */
+.claro .dijitSliderHover .dijitSliderImageHandleH {
+	background-position: 0 0;
+}
+
+.claro .dijitSliderFocused .dijitSliderImageHandleH {
+	background-position: 0 0;
+}
+
+.claro .dijitSliderProgressBarH .dijitSliderThumbHover {
+	background-position: 0 0;
+}
+
+.claro .dijitSliderProgressBarH .dijitSliderThumbActive {
+	background-position: -0 0;
+}
+
+.claro .dijitSliderReadOnly .dijitSliderImageHandleH,.claro .dijitSliderDisabled .dijitSliderImageHandleH
+	{
+	background-position: -0 0;
+}
+
+.claro .hslider .dijitSliderImageHandleH {
+	border: 0;
+	width: 18px;
+	height: 16px;
+	background-image: url("../images/slider-knob.jpeg");
+	top: -2.5px;
+}
+
+.claro .hslider .dijitSliderHover .dijitSliderImageHandleH {
+	background-position: 0 0 !important;
+	background-image: url("../images/slider-knob.jpeg");
+}
+
+.claro .hslider .dijitSliderFocused .dijitSliderImageHandleH {
+	background-position: 0 0 !important;
+	background-image: url("../images/slider-knob.jpeg");
+}
+
+.claro .hslider .dijitSliderProgressBarH .dijitSliderThumbHover {
+	background-position: 0 0 !important;
+	background-image: url("../images/slider-knob.jpeg");
+}
+
+.claro .hslider .dijitSliderProgressBarH .dijitSliderThumbActive {
+	background-position: 0 0 !important;
+	background-image: url("../images/slider-knob.jpeg");
+}
+
+.claro .dijitSliderHover .dijitSliderRemainingBarH,.claro .dijitSliderHover .dijitSliderRightBumper
+	{
+	background-color: #dedcd4;
+}
+
+.claro .dijitSlider .dijitSliderRemainingBarH,.claro .dijitSlider .dijitSliderRightBumper
+	{
+	background-color: #dedcd4;
+}
+
+.claro .hslider .dijitSliderBarH {
+	height: 10px !important;
+	background-color: #dedcd4;
+}
+
+.claro .dijitSliderImageHandleH {
+	outline: none !important;
+}
+
+.dijitSliderBumperH {
+	height: 10px !important;
+}
+
+.claro .hsliderBL .dijitSliderProgressBarH {
+	border-color: #39A3D8 !important;
+	background-color: #39A3D8 !important;
+	background-image: none;
+}
+
+.claro .hsliderBL .dijitSliderLeftBumper {
+	border-color: #39A3D8 !important;
+	background-color: #39A3D8 !important;
+	background-image: none;
+}
+
+.claro .hsliderORG .dijitSliderProgressBarH {
+	border-color: #F2931F !important;
+	background-color: #F2931F !important;
+	background-image: none;
+}
+
+.claro .hsliderORG .dijitSliderLeftBumper {
+	border-color: #F2931F !important;
+	background-color: #F2931F !important;
+	background-image: none;
+}
+
+.claro .hsliderDORG .dijitSliderProgressBarH {
+	border-color: #CF753A !important;
+	background-color: #CF753A !important;
+	background-image: none;
+}
+
+.claro .hsliderDORG .dijitSliderLeftBumper {
+	border-color: #CF753A !important;
+	background-color: #CF753A !important;
+	background-image: none;
+}
+
+.claro .hsliderYG .dijitSliderProgressBarH {
+	border-color: yellowgreen !important;
+	background-color: yellowgreen !important;
+}
+
+.claro .hsliderYG .dijitSliderLeftBumper {
+	border-color: yellowgreen !important;
+	background-color: yellowgreen !important;
+}
+
+/*=============================IP Firewall============================*/
+.ipfirewall-left {
+	width: 393px;
+	float: left;
+	min-height: 1px;
+	margin-left: 20px;
+}
+
+.ipfirewall-right {
+	width: 410px;
+	float: left;
+	min-height: 1px;
+	padding-top: 20px;
+	margin-left: 20px;
+	border: 1px solid lightgrey;
+	position: relative;
+}
+
+.ipfirewall-right:after,.ipfirewall-right:before {
+	right: 100%;
+	border: solid transparent;
+	content: " ";
+	height: 0;
+	width: 0;
+	position: absolute;
+	pointer-events: none;
+}
+
+.ipfirewall-right:after {
+	border-color: rgba(255, 255, 255, 0);
+	border-right-color: #ffffff;
+	border-width: 14px;
+	top: 48%;
+	margin-top: -14px;
+}
+
+.ipfirewall-right:before {
+	border-color: rgba(194, 225, 245, 0);
+	border-right-color: lightgrey;
+	border-width: 15px;
+	top: 48%;
+	margin-top: -15px;
+}
+
+.firewall-control {
+	margin-left: 130px !important;
+}
+
+.ipfirewall-padding {
+	margin-left: 20px;
+}
+
+.select-services-text {
+	position: relative;
+	top: -7px;
+	left: 10px;
+}
+
+.ipfirewall-input {
+	margin-bottom: 10px !important;
+}
+
+.ipfirewall-title1 {
+	color: #000;
+}
+
+.ipfirewall-title2 {
+	color: #b5b5b5;
+}
+
+.ipfirewall-label {
+	width: 130px !important;
+}
+
+.ipfirewall-box {
+	width: 250px;
+}
+
+.firewall-buttons {
+	margin-top: 10px;
+	margin-right: 17px;
+	margin-left: 20px;
+}
+
+.ipfirewall-left {
+	padding-top: 20px;
+}
+
+.firewall-select-padding {
+	position: relative;
+	top: 5px;
+	color: #4cb3df !important;
+}
+
+/*==========================QOS=========================*/
+.limit-user-profile-slider {
+	margin-top: 10px;
+}
+
+.limit-dialog-userprofile-slider {
+	margin-top: 0px;
+}
+
+.scheduling-weight {
+	margin-left: 30px !important;
+}
+
+.rate-limit-leftsliders {
+	width: 400px !important;
+}
+
+.control-group .dialog-rate-label {
+	margin-left: 7px;
+}
+
+
+
+.traffic-switch-label {
+	width: 240px;
+	margin-top: 5px;
+}
+
+.clientsla-switch-label {
+	width: 330px;
+	margin-top: 5px
+}
+
+
+
+
+
+.clientsla-ratelimit-slider1 {
+	margin-top: -26px;
+	margin-left: 340px !important;
+}
+
+.clientsla-ratelimit-slider {
+	margin-top: 0px;
+	margin-left: 4px;
+}
+
+.policydetails-ratelimit-slider1 {
+	margin-top: -26px;
+	margin-left: 367px !important;
+}
+
+
+
+.traffic-table-padding {
+	margin-left: 0px !important;
+	width: 917px;
+}
+
+/*======================== Quality of Services Dialog=========================== */
+
+/* Table in Quality of Service */
+ul.inline.dialog-table>li,ol.inline.dialog-table>li {
+	display: inline-block;
+	*display: inline;
+	width: 153px;
+	padding-left: 0px;
+	padding-top: 10px;
+	padding-right: 10px;
+	*zoom: 1;
+	font-weight: bold;
+	text-align: left;
+}
+
+ul.inline.dialog-content>li {
+	display: inline-block;
+	*display: inline;
+	width: 152px;
+	padding-left: 5px;
+	*zoom: 1;
+	padding-top: 3px;
+	padding-bottom: 3px;
+}
+
+.dialog-content:hover {
+	background-color: #FFF7E5;
+}
+
+.dialog-traffic-slider {
+	position: relative;
+	top: 7px;
+	right: 9px;
+}
+
+
+
+.dialog-top-slider1 {
+	width: 400px;
+	float: left;
+}
+
+.dialog-top-slider2 {
+	width: 400px;
+	float: left;
+	padding-left: 30px;
+}
+
+.dialog-top-slider-three .dialog-top-slider1,
+.dialog-top-slider-three .dialog-top-slider2,
+.dialog-top-slider-three .dialog-top-slider3{
+	width : 270px;
+	float : left;
+	padding-left : 20px
+}
+.dialog-top-slider-three .dialog-top-slider1{
+	padding-left : 0
+}
+.dialog-top-slider-three .qos-dialog-topslider {
+	margin-top: -26px;
+	margin-left: 210px !important;
+}
+
+.dialog-top-sliders {
+	height: 60px;
+	padding-left: 10px;
+}
+
+.qos-dialog-header {
+	padding-left: 10px;
+	padding-top: 10px;
+}
+
+#qos-dialog-weight {
+	color: grey;
+	position: relative;
+	bottom: 2px;
+	letter-spacing: 1px;
+	padding-left: 6px;
+}
+
+.qos-dialog-selection {
+	width: 100px;
+	position: relative;
+	margin-bottom: 4px;
+}
+
+/*======================Traffic Tunneling====================*/
+.traffic-left {
+	width: 450px;
+}
+
+.traffic-right {
+	width: 550px;
+}
+
+.form-horizontal .traffic-label-right {
+	text-align: left;
+	margin-left: 0px;
+}
+
+.traffic-label-right {
+	float: left;
+	width: 142px;
+}
+
+.traffic-controls {
+	margin-left: 140px !important;
+}
+
+.traffic-label-password1 {
+	float: left;
+	width: 199px;
+}
+
+.clientsla-checkboxes {
+	margin-top: 20px;
+}
+/*===========================Tabs styles=============================*/
+.claro .dijitTab {
+	border: 1px solid transparent;
+}
+
+.tabLabel {
+	outline: none !important;
+}
+
+.claro .dijitTabChecked {
+	border: 1px solid #b5bcc7;
+	background-color: white;
+	color: #000000;
+}
+
+.claro .dijitTabContainerTop-tabs .dijitTab {
+	background: none;
+	box-shadow: none !important;
+	border-radius: 15px 0 0 0/10px /*0px 0 0 0*/;
+  /*  background:
+        -webkit-linear-gradient(0deg,  transparent 0px, #aaa 0px),
+        -webkit-linear-gradient(0deg, transparent 0px, #aaa 0px),
+        -webkit-linear-gradient(0deg, transparent 0px, #aaa 0px),
+        -webkit-linear-gradient(315deg, transparent 5px, #aaa 5px);
+    
+    background-position: bottom left, bottom right, top right, top left;
+    -moz-background-size: 50% 50%;
+    -webkit-background-size: 50% 50%;
+    background-size: 50% 50%;
+    background-repeat: no-repeat;
+    width: auto;
+    padding:5px;
+    color: white;
+    line-height:1.5;
+	*/
+	
+}
+
+.ah-tab {
+	top: 1px;
+	margin-right: 5px;
+	padding: 10px 10px;
+	border-bottom-width: 0;
+	min-width: 60px;
+	text-align: center;
+	cursor: pointer;
+}
+
+.ah-tab-selected {
+	border: 1px solid #b5bcc7;
+	top: 1px;
+	margin-right: 5px;
+	padding: 10px 10px;
+	border-bottom-width: 0;
+	min-width: 60px;
+	text-align: center;
+	cursor: pointer;
+}
+
+.ipfirewall-grid {
+	width: 860px;
+	height: 490px;
+}
+
+.selectservices-label {
+	margin-left: 95px;
+	position: relative;
+	bottom: 5px;
+}
+
+.ipfirewall-right-padding {
+	padding-left: 20px;
+}
+
+.ipfirewall-divider {
+	margin-left: 20px;
+	margin-right: 20px;
+}
+
+.macfirewall-title1 {
+	color: #000;
+	padding-left: 20px;
+	padding-top: 20px;
+}
+
+.clientsla-slider-label {
+	margin-left: 5px !important;
+}
+
+.firewall-save-button {
+	margin-right: 17px;
+	margin-top: 10px;
+	margin-left: 10px;
+}
+
+.firewall-cancel-button {
+	margin-top: 10px;
+	margin-right: 5px;
+}
+
+.firewall-border {
+	background-color: #B0B0B0;
+	border-top: 0px;
+	border-bottom: 0px;
+	margin: 0px 0;
+	margin-top: 17px;
+}
+
+.firewall-nav-pills {
+	padding-left: 0;
+}
+
+.traffic-left-content {
+	margin-left: 30px;
+	
+}
+
+
+.no-mbottom {
+	margin-bottom: 0px !important;
+}
+
+.config-trafficcomposition-first {
+	margin-top: 4px;
+}
+
+.policy-slider-title {
+	padding-left: 5px;
+}
+
+/* ===================================== SSID Page ============================== */
+
+.ssid-form {
+	width: 915px;
+}
+
+.ssid-left {
+	float: left;
+	width: 480px;
+	margin-top: 4px;
+}
+
+.ssid-right {
+	float: left;
+	/*width: 385px;
+	margin-left: 80px;*/
+	min-height: 100px;
+	border-left:1px solid #ddd;
+	padding-left:10px;
+}
+
+.ssid-textbox {
+	width: 260px;
+}
+
+.ssid-pass-textbox {
+	width: 275px;
+}
+
+.ssid-left1 {
+	width: 440px;
+	float: left;
+}
+
+.ssid-right1 {
+	float: left;
+	width: 385px;
+	margin-left: 80px;
+}
+
+.ssid-tooltip {
+	float: left;
+	width: 340px;
+}
+
+.ssid-lightbulb {
+	float: left;
+	width: 25px;
+}
+
+.ssid-selector{
+	position: relative;
+	border: solid 1px;
+	border-top:medium none;
+	height: 350px;
+	width: 650px;
+}
+.ssid-selector .ssid-pager{
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	height: 40px;
+	background-color: #ccc;
+}
+.ssid-side{
+	width: 300px;
+	height: 390px;
+	background-color: #f6f6f6;
+}
+.ssid-side:after{
+	content: '';
+	display: block;
+	position: absolute;
+	top: -6px;
+	left: 20px;
+	width: 0;
+	height: 0;
+	border-left: 6px solid transparent;
+	border-bottom: 6px solid transparent;
+	border-right: 7px solid #f6f6f6;
+}
+.sub-text{
+	color: #999;
+	padding-left: 30px;
+}
+
+.checkbox-align {
+	margin-top: 4px;
+}
+
+.firewall-select-button {
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+
+.dialog-header-table1 {
+	width: 125px !important;
+}
+
+.traffic-dialog-padding {
+	margin-left: 0px !important;
+	width: 834px;
+}
+
+.dialog-table1 {
+	width: 126px !important;
+	color: grey;
+	position: relative;
+	left: 8px;
+}
+
+.dialog-table2 {
+	width: 130px !important;
+}
+
+.dialog-table3 {
+	width: 110px !important;
+	padding-left: 0px !important;
+}
+
+.dialog-table4 {
+	width: 140px !important;
+}
+
+.dialog-table5 {
+	width: 140px !important;
+	padding-left: 0px !important;
+}
+
+.dialog-table6 {
+	width: 130px !important;
+	padding-left: 0px !important;
+}
+
+.dialog-table-header-padding {
+	padding-bottom: 10px;
+}
+
+.dialog-content-padding {
+	padding-left: 10px;
+	padding-right: 10px;
+}
+
+.traffic-table-padding {
+	margin-left: 0px !important;
+	width: 917px;
+}
+
+
+.copy-qos-img {
+	position: relative;
+	bottom: 2px;
+	left: 2px;
+}
+
+.qos-copy {
+	padding-right: 20px;
+	padding-top: 7px;
+}
+
+.policy-details-navbar {
+	border-left: none;
+	border-right: 3px solid #E7E4E0;
+	border-top: 1px solid #E7E4E0;
+	background-color: #F9F9F7;
+	padding: 10px 0px 990px; 
+	margin: 0px 0px -990px; 
+}
+
+.availability-switch-label {
+	width: 229px;
+	margin-top: 5px;
+}
+
+.firewall-switch-label {
+	width: 200px;
+	margin-top: 5px;
+}
+
+.qos-dialog-topslider1 {
+	margin-top: -26px;
+	margin-left: 349px !important;
+}
+
+/* ============================ Firewall Page ============================ */
+
+/*Tag Selection */
+
+.ip-textselect {
+    position: relative;
+    display: inline block;
+    vertical-align: middle;
+    zoom: 1;
+    background: #FFF;
+    -moz-appearance: textfield-multiline;
+    -webkit-appearance: textarea;
+    overflow: auto;
+    padding: 5px;
+    color: #393939;
+    outline: none !important;
+    border-color: #CCCCCC;
+    transition-duration: .1s;
+    height: 60px;
+    width: 255px;
+    
+}
+ 
+.ip-choices{
+    position: relative;
+    overflow: hidden;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: auto !important;
+/*  border: 1px solid #aaa;*/
+    background-color: #fff;
+    cursor: text;
+    outline: none !important;
+}
+ 
+ ul.ip-choices li{
+    position: relative;
+    margin: 3px 0 3px 5px;
+    padding: 3px 20px 3px 5px;
+    border: 1px solid #aaa;
+    border-radius: 3px;
+    background-color: #e4e4e4;
+    background-clip: padding-box;
+    color: #333;
+    line-height: 13px;
+    cursor: default;
+    float: left;
+    list-style: none;
+    
+}
+
+.ip-choices-close-icn{
+	position: relative;
+	left: 10px;
+}
+
+ 
+ 
+.config-wizard-nav-anchor-element{
+	padding-left: 39px;
+	color: #717174;
+	cursor: pointer;
+	line-height: 30px;
+	vertical-align: middle;
+}
+
+
+.form-container{
+	padding-top: 30px;
+}
+
+.policy-icon{
+	position: relative;
+	right: 18px;
+	bottom: 2px;
+}
+
+.unselected-navpill{
+	background-color: #f5f4f2;
+}
+
+.large-close-x-button {
+	float: right;
+	height: 18px;
+	width: 18px;
+	background-color: #D1CEc3;
+	text-align: center;
+	margin-top: 5px;
+	margin-right: 5px;
+	vertical-align: middle;
+	padding-right: 1px;
+}
+
+.add-object-box {
+	border: 1px solid #CCC;
+	width: 798px;
+	margin-left: 20px;
+	position:relative;
+}
+
+.add-object-box:after {
+	content: '';
+	display: block;
+	position: absolute;
+	top: -6px;
+	left: 20px;
+	width: 0;
+	height: 0;
+	border-left: 6px solid transparent;
+	border-right: 6px solid transparent;
+	border-bottom: 7px solid white;
+}
+.add-object-box.l66:after{
+	left:66px;
+}
+
+/**
+  *@page createSchedule.html
+  *@author peng
+  */
+.schedule-section{
+	border-bottom : 1px solid #ddd;
+	margin-bottom: 20px
+}
+.schedule-time-con{
+	margin-top:20px
+}
+.schedule-time-con p{
+	margin : 0
+}
+.day-list-item{
+	display:inline-block;
+	height:25px;
+	line-height: 25px;
+	width:64px;
+	text-indent: 10px;
+	background-color: #eeede9;
+	border-right: 1px solid #fff;
+	color : #4c687f;
+	cursor : pointer
+}
+.day-list-item-cur{
+	background: #dedcd4 url(../images/schedule.png) 45px -232px no-repeat;
+}
+.add-range{
+	color : #0093d1
+}
+
+/**
+  *@page AdvancedSecurityOptions.html
+  *@author peng
+  */
+.auth-option .control-label{
+	width : 320px;
+}
+.auth-option .controls{
+	overflow: hidden
+}
+/*
+ * page: WirelessConnectivityPage
+ * auther: xmwang
+ */
+.wireless-config .remark{
+	font-style: italic;
+	color: #CCC;
+}
+.grid-hide, .grid-show{
+	height: 25px;
+	width: 100%;
+	line-height: 25px;
+	display: inline-block;
+}
+.grid-hide .arrow, .grid-show .arrow{
+	background: url(../images/open-arrow.png) no-repeat bottom right;
+	padding: 0 8px;
+	margin-left: 5px;
+}
+.grid-show .arrow{
+	background-position: 0 0;
+}
+.grid-toggle{
+	margin: 15px 0;
+}
+
+
+/**
+  *@page SSIDDetailsForm.html
+  *@author peng
+  */
+.ssid-left .radio{
+	position: relative;
+}
+.ssid-left .hr-link{
+	display:none;
+	position:absolute;
+	width:100%;
+	top:13px;
+	left :0;
+	border-top: 1px solid #ccc
+}
+.ssid-left .lbl{
+	background-color: #fff;
+	font-weight: 700
+}
+.broadcast-con .gray{
+	padding-left : 20px;
+}
+
+/*add new slider down*/
+.addNewObj{
+	width: auto;
+	margin: 0;
+	padding: 0 20px;
+}
+
+.ip-input{
+	float: left;
+	margin: 0 !important;
+}
+.ip-trigger{
+	background: url(../images/list-objects.png) right -54px;
+	display: inline-block;
+	width: 27px;
+	height: 29px;
+	float: left;
+	margin-left: -28px;
+}
+.ip-trigger.active{
+	background-position: 0 1px;
+}
+.ip-edit, .ip-save{
+	background: url(../images/edit.png) right -26px no-repeat;
+	width: 18px;
+	height: 28px;
+	float: left;
+	margin-left: -50px;
+}
+.ip-save{
+	background: url(../images/save.png) 0 8px no-repeat;
+}
+.ip-edit.active{
+	background-position: 0 6px;
+}
+.ip-list{
+	border: solid 1px #ccc;
+	width: 390px;
+	top: 29px;
+	padding: 10px;
+	position: absolute;
+	background-color: #FFF;
+	z-index: 101;
+	max-height: 310px;
+	overflow: auto;
+}
+.ip-list table{
+	width: 100%;
+}
+.ip-list table tr{
+	cursor: pointer;
+}
+.ip-list table tr:hover, .ip-list table .current{
+	background-color: #fff9e7;
+}
+.ip-list table .ip-category:hover{
+	background-color: #fff;
+}
+.ip-list table td{
+	width: 50%;
+}
+/**
+  *@client proflie dialog template
+  *@author peng
+  */
+.claro .dijitDialogPaneContent{
+	padding : 0;
+}
+
+/**
+  *@page IDMUserGroup.html
+  *@author peng
+  */
+.expire-list-item{
+	margin-top : 20px
+}
+.expire-list-item-con{
+	margin : 10px 0 0 25px
+}
+/**
+  *@page CreateIpFirewallRule.html
+  *@author peng
+  */
+.filter-app-list{
+	height : 200px;
+	overflow: auto;
+}
+.filter-app-list-item{
+	padding:5px 0 5px 20px;
+}
+.filter-app-list-item:hover{
+	background-color: #fff9e7;
+}
+
+/*
+* ExternalRadiusClassification
+*/
+
+.device-type .current, .device-type .current:hover{
+	color: #a39c97;
+	cursor: default;
+}
+
+/**
+ *@page RateLimitDialog
+ *@author peng
+ */
+.dijitSlider td{
+	padding : 0 !important;
+	border : 0 !important
+}
+
+.cfg-preview{
+	position: absolute;
+	top: 51px;
+	left: 125px;
+}
+
+/*============Override dojo tree css==============*/
+.dijitTreeNode .dijitTreeIcon{
+	background: url("../images/tree-folder.png") no-repeat 0 0;
+	width: 20px;
+}
+.dijitTreeIcon.dijitFolderClosed{
+	background-position: 1px 0;
+}
+.dijitTreeIcon.dijitFolderOpened{
+	background-position: -22px -16px;
+}
+
+.claro .dijitTreeNode .dijitTreeExpando{
+	background: url("../images/tree-expando.png") no-repeat 0 0;
+	width: 11px;
+	height: 11px;
+}
+.claro .dijitTreeExpando.dijitTreeExpandoClosed{
+	background-position: 0 0;
+}
+.claro .dijitTreeExpando.dijitTreeExpandoOpened{
+	background-position: -14px -14px;
+}
+.claro .dijitTreeNode .dijitTreeExpandoLeaf, .dj_ie6 .claro .dijitTreeNode .dijitTreeExpandoLeaf{
+	background-image: none;
+}
+
+.claro .dijitTreeNode .dijitTreeRowSelected, .claro .dijitTreeNode .dijitTreeRowHover{
+	background-color: #FFF;
+	border: medium none;
+	padding: 4px 0 2px 0;
+}
+.claro .dijitTreeNode .dijitTreeLabel{
+	outline: none;
+}
+
+/* ============================ Location Server Page ============================ */
+.round-left {
+	padding-right: 15px;
+	width: 170px;
+}
+
+.normal-text {
+	font-weight:normal;
+	font-size:13px;
+}
+
+.control-label-left {
+	padding-right: 35px;
+	}
+legend{
+		margin-bottom: 0;
+	
+}
+.location-radio {
+	width:100px;
+}
+
+
+
+/* ============================ NTP Server Page ============================ */
+.newline {
+	height: 20px;
+}
+
+/**
+ *@Page devicemanagement/deviceManagement.html
+ *@Author peng
+ */
+.device-content-area{
+	margin-left : 220px;
+	padding-left : 40px
+}
+
+/**
+ *@Page devicemanagement/Overview.html
+ *@Author peng
+ */
+.view-section{
+	margin-bottom : 20px
+}
+.view-half-left{
+	float : left;
+	width : 50%
+}
+.min-chart{
+	width: 95px;
+	height: 30px;
+	display: inline-block;
+	vertical-align: -10px;
+	margin-left : 15px
+}
+.max-chart-wrap{
+	position : relative;
+	display : inline-block;
+	margin-left : 25px
+}
+.max-chart{
+	position : absolute;
+	width : 300px;
+	height : 150px;
+	top : -50px;
+	left : 50px
+}
+.sys-status{
+	text-align:right
+}
+a.sys-status-item{
+	display: inline-block;
+	padding: 0 10px;
+	height: 30px;
+	line-height: 30px;
+	background-color: #f0efeb;
+	color: #beb9aa;
+	text-align: center;
+	font-size: 11px;
+	font-weight: 700;
+}
+.sys-status-item:hover,
+a.sys-status-item-cur{
+	background-color: #f5a433;
+	color: #fff;
+}
+
+.system-detail-section .ui-small-progress-bar{
+	display : inline-block
+}
+
+.device-status-item{
+	height : 60px;
+	line-height:60px;
+	background-color : #f5f5f5;
+	font-size : 16px;
+	margin-bottom:5px
+}
+.device-status-icon{
+	display : inline-block;
+	text-align: center;
+	width: 60px;
+	height: 60px;
+	margin-right: 10px;
+	color : #fff
+}
+
+.device-status-copy{
+	display : inline-block
+}
+.device-status-copy em{
+	padding-left : 10px;
+	color: #beb9aa;
+	font-size: 12px
+}
+
+.device-status-conn{
+	background-color: #60CA02;
+}
+
+.device-status-alarm{
+	background-color: #0093d1;
+}
+
+.device-status-client{
+	background-color: #4c687f;
+}
+.display-option-frame{
+	width : 530px;
+	height : 190px;
+	border : 1px solid #dedcd4
+}
+.location-crumb{
+	margin-top:10px
+}
+.location-crumb .ui-crumb{
+	display : inline-block
+}
+
+/* ==================== Permission Slider ====================*/
+.permission-slider{
+	position: relative;
+	width: 733px;
+	height: 72px;
+	vertical-align: bottom;
+}
+.permission-slider .slider-title-text{
+	position: absolute;
+	bottom: 10px;
+	margin: 0;
+}
+.slider-title-text.first{
+	left: 0;
+}
+.slider-title-text.second{
+	left: 156px;
+}
+.slider-title-text.third{
+	left: 285px;
+}
+.slider-title-text.forth{
+	left: 510px;
+}
+.slider-title-text.last{
+	right: 0;
+}
+/*===============Device Template================*/
+.form-container .device-widget{
+	 -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+/**
+ *@Page Configuration/QOS.html
+ *@Author peng
+ */
+.qos-slider-label{
+	color : #747474;
+	font-size : 11px
+}
+.rate-limit-label{
+	font-size : 10px;
+	color : #000
+}
+.qos-marking-title{
+	font-size : 25px
+}
+
+/***** got from above *****/
+.qos-input {
+	width: 40px;
+	text-align: center;
+	height: 31px;
+	margin-bottom: 4px !important;
+}
+.qos-dialog-slider1 {
+	margin-top: 0px;
+	margin-left: 5px;
+}
+
+.qos-dialog-slider2 {
+	margin-top: -26px;
+	margin-left: 152px !important;
+}
+
+.control-group .rate-limit-label {
+	margin-left: 4px;
+}
+
+
+.qos-switch-label {
+	width: 210px;
+	margin-top: 5px;
+}
+
+.qos-form-container {
+	padding-left: 10px;
+}
+
+#qos-slider-label {
+	font-size: 11px;
+	color: #747474;
+	padding-left: 0px;
+}
+
+/*
+#qos-slider-counter {
+	font-size: 10px;
+	color: black;
+	padding-left: 0px;
+}
+*/
+
+#qos-slider-counter {
+	font-size: 10px;
+	color: black;
+	padding-left: 1px;
+}
+
+.qos-ratelimit-slider1 {
+	margin-top: -20px;
+}
+
+.qos-ratelimit-slider2 {
+	margin-top: -26px;
+	margin-left: 291px !important;
+}
+
+.qos-ratelimit-slider3 {
+	margin-top: 0px;
+}
+
+.qos-ratelimit-slider4 {
+	margin-top: -26px;
+	margin-left: 291px !important;
+}
+
+.qos-ratelimit-slider5 {
+	margin-top: 0px;
+}
+
+.qos-ratelimit-slider6 {
+	margin-top: -26px;
+	margin-left: 291px !important;
+}
+.qos-dialog-topslider {
+	margin-top: -26px;
+	margin-left: 341px !important;
+}
+
+.qos-control-group {
+	margin-bottom: 5px !important;
+}
+
+#qos-dialog-slider-label {
+	color: #747474;
+	padding-left: 0px;
+	margin-bottom: -28px;
+}
+
+.qos-label {
+	color: grey;
+	padding-left: 0px;
+	margin-top: 18px;
+	margin-bottom: 20px;
+}
+
+.qos-label-2 {
+	color: grey;
+	padding-left: 0px;
+	margin-top: 5px;
+	margin-bottom: 10px;
+}
+
+/*
+ * page all acct form
+ * @author XiaoMing
+*/
+.acct legend{
+	border: medium none;
+	font-size: 14px;
+	padding-left: 180px;
+	font-weight: bold;
+	line-height: 27px;
+}
+
+/*
+ * @page importRCCertificate
+ * @author XiaoMing
+ */
+ #uploaderCtn .dijitButtonNode{
+	border: medium none;
+	cursor: pointer;
+ }
+ #uploaderCtn .dijitButtonHover .dijitButtonNode{
+ 	background: transparent;
+ 	color: #4c687f;
+ }
