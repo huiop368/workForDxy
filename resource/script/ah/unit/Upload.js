@@ -94,7 +94,7 @@ define(['dojo/_base/declare','dijit/_WidgetBase','dijit/_TemplatedMixin',
             },
             cancel: function(id){
                 this._files[id] = null;
-                
+
                 if (this._xhrs[id]){
                     this._xhrs[id].abort();
                     this._xhrs[id] = null;                                   
@@ -238,7 +238,7 @@ define(['dojo/_base/declare','dijit/_WidgetBase','dijit/_TemplatedMixin',
 
             templateString : '<li>' +
                         '<span class="ui-upload-file" data-dojo-attach-point="fileEl"></span>' +
-                        '<span class="ui-upload-spinner"></span>' +
+                        '<span class="ui-upload-spinner" data-dojo-attach-point="spinEl"></span>' +
                         '<span class="ui-upload-size" data-dojo-attach-point="sizeEl"></span>' +
                         '<a class="ui-upload-del" href="#" data-dojo-attach-point="delEl">&#10005;</a>' +
                         '<a class="ui-upload-cancel" href="#" data-dojo-attach-point="cancelEl">${cancel}</a>' +
@@ -248,6 +248,10 @@ define(['dojo/_base/declare','dijit/_WidgetBase','dijit/_TemplatedMixin',
             'cancel' : 'Cancel',
 
             'failText' : 'Failed',
+
+            'successClass' : 'ui-upload-success',
+
+            'failClass' : 'ui-upload-fail',
 
             postCreate : function(){
                 this._bindUI();
@@ -262,7 +266,6 @@ define(['dojo/_base/declare','dijit/_WidgetBase','dijit/_TemplatedMixin',
 
             _handleDel : function(e){
                 e.preventDefault();
-
                 this.fileObj.onDelete();
                 this.fileObj._filesUploaded--;
                 this.destroy();
@@ -270,8 +273,7 @@ define(['dojo/_base/declare','dijit/_WidgetBase','dijit/_TemplatedMixin',
 
             _handleCancel : function(e){
                 e.preventDefault();
-
-                this.fileObj._handler.cancel(this.id);
+                this.fileObj._handler.cancel(this.xhrId);
                 this.fileObj._filesUploaded--;
                 this.destroy();
             },
@@ -306,6 +308,15 @@ define(['dojo/_base/declare','dijit/_WidgetBase','dijit/_TemplatedMixin',
                     return;
                 }
                 this[el].style.display = 'none';
+            },
+
+            showResult : function(type){
+                domClass.add(this.domNode,this[type+'Class']);
+            },
+
+            destroy : function(){
+                this.fileObj.removeItemObj(this.xhrId);
+                this.inherited(arguments);
             }
 
         });
@@ -317,7 +328,7 @@ define(['dojo/_base/declare','dijit/_WidgetBase','dijit/_TemplatedMixin',
         var FileUploader = declare('ah/unit/Upload',[_WidgetBase,_TemplateMixin],{
 
             templateString : '<div class="ui-uploader">' + 
-                            '<div class="ui-upload-drop-area"><span>Drop files here to upload</span></div>' +
+                            '<div class="ui-upload-drop-area" data-dojo-attach-point="dropEl"><span>Drop files here to upload</span></div>' +
                             '<div class="ui-upload-button" data-dojo-attach-point="btnEl">${btnText}</div>' +
                             '<ul class="ui-upload-list" data-dojo-attach-point="listEl"></ul>' + 
                          '</div>',
@@ -337,6 +348,13 @@ define(['dojo/_base/declare','dijit/_WidgetBase','dijit/_TemplatedMixin',
 
             limit : 1,
 
+            messages: {
+                typeError: 'file type error',
+                sizeError: 'file size error',
+                emptyError: 'file empty error',
+                countError : 'file count error'
+            },
+
             onSubmit: function(id, fileName){},
 
             onComplete: function(id, fileName, responseJSON){},
@@ -347,11 +365,12 @@ define(['dojo/_base/declare','dijit/_WidgetBase','dijit/_TemplatedMixin',
                 alert(message);
             },
 
+
            // main programm
 
             postCreate : function(){
                 this._rendUI();
-                this._bindUI();
+                //this._bindUI();
             },
 
             _rendUI : function(){
@@ -361,6 +380,9 @@ define(['dojo/_base/declare','dijit/_WidgetBase','dijit/_TemplatedMixin',
                 
                 // number of files uploaded
                 this._filesUploaded = 0;
+
+                // store item
+                this.itemHash = {};
 
                 this._handler = this._createUploadHandler(); 
 
@@ -372,6 +394,10 @@ define(['dojo/_base/declare','dijit/_WidgetBase','dijit/_TemplatedMixin',
                     },
                     name : this.name || 'file'
                 });        
+
+                if(this.dnd){
+                    this.dropEl.style.display = '';
+                }
             },
 
             _bindUI : function(){
@@ -381,7 +407,7 @@ define(['dojo/_base/declare','dijit/_WidgetBase','dijit/_TemplatedMixin',
             },
 
             setParam: function(param){
-                this._options.param = param;
+                this.param = param;
             },
            
             isUploading: function(){
@@ -406,33 +432,44 @@ define(['dojo/_base/declare','dijit/_WidgetBase','dijit/_TemplatedMixin',
                     },
                     onComplete: function(id, fileName, result){
                         self._filesInProgress--;
-                        console.log('complete');
-                        // mark completed
-                       /* var item = self._getItemByFileId(id);                
-                       
-                       self._getElement(item,'cancel').remove();
-                       self._getElement(item,'spinner').remove();
-                       self._getElement(item,'del').show();
+
+                        var item = self._getItemObj(id);
                         
+                        item.hide(['cancelEl','spinEl']);
+                        item.show('delEl');
+
                         if (result.status){  
-                            item.addClass(self._classes.success);
+
+                            item.showResult('success');
+
                         } else {
-                           item.addClass(self._classes.fail);
-                            
+                            item.showResult('fail');
+
                             if (result.message){
-                               self._options.showMessage(result.message); 
+                               self.showMessage(result.message); 
                             }
                         }
                             
-                        self._options.onComplete(id, fileName, result, self._options);       */                         
+                        self.onComplete(id, fileName, result);
+                                       
                     }
                 });
 
                 return handler;
             },
 
-            _updateProgress : function(id, fileName, loaded, total){
-                console.log('progressing...');
+            _updateProgress: function(id, loaded, total){
+                var item = this._getItemObj(id),text;
+
+                item.show('sizeEl');
+                
+                if (loaded != total){
+                    text = Math.round(loaded / total * 100) + '% (' + this._formatSize(total) + ')';
+                } else {                                   
+                    text = this._formatSize(total);
+                }          
+                
+               item.text('sizeEl',text);
             },
 
             _onInputChange : function(input){
@@ -473,13 +510,12 @@ define(['dojo/_base/declare','dijit/_WidgetBase','dijit/_TemplatedMixin',
                     name = this._handler.getName(id);
                 
                 // validate limit files
-                if(++this._filesUploaded > this._limit){
-                    //this._error('countError',name); 
+                if(++this._filesUploaded > this.limit){
+                    this._error('countError',name); 
                     return false;
                 }
                 this.onSubmit(id, name);        
                 this._addToList(id, name);
-               
                 this._handler.upload(id, this.param);     
             },
 
@@ -488,11 +524,43 @@ define(['dojo/_base/declare','dijit/_WidgetBase','dijit/_TemplatedMixin',
               *@Helps
               */
             _validateFile : function(file){
-                return true;
+                var name,size;
+         
+                if (file.value){
+                    // it is a file input            
+                    // get input value and remove path to normalize
+                    name = file.value.replace(/.*(\/|\\)/, "");
+                } else {
+                    // fix missing properties in Safari
+                    name = file.fileName != null ? file.fileName : file.name;
+                    size = file.fileSize != null ? file.fileSize : file.size;
+                }
+                
+                if(this._filesUploaded >= this.limit){
+                    this._error('countError',name); 
+                    return false;
+                }
+                            
+                if (! this._isAllowedExtension(name)){            
+                    this._error('typeError',name);
+                    return false;
+                    
+                } else if (size === 0){            
+                    this._error('emptyError',name);
+                    return false;
+                                                             
+                } else if (size && this.sizeLimit && size > this.sizeLimit){            
+                    this._error('sizeError',name);
+                    return false;            
+                }
+                
+                return true;              
             },
 
             _addToList : function(id, name){
-                var item = new Item({id : id, fileObj : this});
+                var item;
+
+                this.itemHash['item'+id] = item = new Item({xhrId : id, fileObj : this});
 
                 item.text('fileEl',this._formatFileName(name));
                 item.hide(['sizeEl','delEl']);
@@ -506,6 +574,51 @@ define(['dojo/_base/declare','dijit/_WidgetBase','dijit/_TemplatedMixin',
                     name = name.slice(0, 19) + '...' + name.slice(-13);    
                 }
                 return name;
+            },
+
+            _isAllowedExtension : function(fileName){
+                var ext = (-1 !== fileName.indexOf('.')) ? fileName.replace(/.*[.]/, '').toLowerCase() : '';
+                var allowed = this.allowedExtensions;
+                
+                if (!allowed.length){return true;}        
+                
+                for (var i=0; i<allowed.length; i++){
+                    if (allowed[i].toLowerCase() == ext){
+                        return true;
+                    }    
+                }
+                
+                return false;
+            },
+
+            _error : function(type, fileName){
+                var message = this.messages[type];
+
+                // need put some detail message
+                message = message.replace('{file}', this._formatFileName(fileName));
+                message = message.replace('{extensions}', this.allowedExtensions.join(', '));
+                message = message.replace('{sizeLimit}', this._formatSize(this.sizeLimit));
+                message = message.replace('{limit}',this.limit);
+
+                this.showMessage(message);
+            },
+
+            _formatSize: function(bytes){
+                var i = -1;                                    
+                do {
+                    bytes = bytes / 1024;
+                    i++;  
+                } while (bytes > 99);
+                
+                return Math.max(bytes, 0.1).toFixed(1) + ['kB', 'MB', 'GB', 'TB', 'PB', 'EB'][i];          
+            },
+
+            _getItemObj : function(id){
+                return this.itemHash['item'+id];
+            },
+
+            removeItemObj : function(id){
+                delete this.itemHash['item'+id];
             }
 
         });
@@ -514,6 +627,7 @@ define(['dojo/_base/declare','dijit/_WidgetBase','dijit/_TemplatedMixin',
         return FileUploader;
 
 });
+
 
 
 
