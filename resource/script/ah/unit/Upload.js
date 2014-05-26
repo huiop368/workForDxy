@@ -3,11 +3,19 @@ define(['dojo/_base/declare','dijit/_WidgetBase','dijit/_TemplatedMixin',
          "dojo/dom-class","dojo/dom-style","dojo/dom-construct"   
         ],function(declare,_WidgetBase,_TemplateMixin,on,lang,query,domClass, domStyle, domConstruct){
 
+        var getUniqueId = function(){
+            var id = 0;
+            return function(){
+                return id++;
+            }
+        }();
+
         var UploadHandlerXhr = function(o){
             this._options = {
                 // url of the server-side upload script,
                 // should be on the same domain
                 action: '/upload',
+                name : 'file',
                 onProgress: function(id, fileName, loaded, total){},
                 onComplete: function(id, fileName, response){}
             };
@@ -84,7 +92,7 @@ define(['dojo/_base/declare','dijit/_WidgetBase','dijit/_TemplatedMixin',
                 };
 
                 // build query string
-                var queryString = '?file=' + encodeURIComponent(name);
+                var queryString = '?'+this._options.name+'=' + encodeURIComponent(name);
                 for (var key in params){
                     queryString += '&' + key + '=' + encodeURIComponent(params[key]);
                 }
@@ -109,6 +117,158 @@ define(['dojo/_base/declare','dijit/_WidgetBase','dijit/_TemplatedMixin',
                 // fix missing size in Safari 4
                 var file = this._files[id];
                 return file.fileSize != null ? file.fileSize : file.size;
+            }
+        };
+
+
+        /**
+         *@For low bowser, use iframe to upload
+         */
+        var UploadHandlerForm = function(){
+            this._options = {
+                // URL of the server-side upload script,
+                // should be on the same domain to get response
+                action: '/upload',
+                // fires for each file, when iframe finishes loading
+                onComplete: function(id, fileName, response){}
+            };
+            lang.mixin(this._options, o);
+               
+            this._inputs = {};
+        };
+
+        UploadHandlerForm.prototype = {
+            add: function(fileInput){
+                var input = fileInput,
+                    id = 'ui-upload-handler-iframe' + getUniqueId();        
+                
+                input.setAttribute('name','ahfile');
+                this._inputs[id] = input;
+                
+                domConstruct.destroy(input);
+                        
+                return id;
+            },
+
+            upload: function(id, params){                        
+                var input = this._inputs[id];
+                
+                if (!input.length){
+                    throw new Error('file with passed id was not added, or already uploaded or cancelled');
+                }                
+                
+                var fileName = this.getName(id);
+                
+                var iframe = this._createIframe(id);
+                var form = this._createForm(iframe, params);
+                form.appendChild(input);
+
+                var self = this;
+                this._attachLoadEvent(iframe, function(){            
+                    self._options.onComplete(id, fileName, self._getIframeContentJSON(iframe));
+                    
+                    delete self._inputs[id];
+                    // timeout added to fix busy state in FF3.6
+                    setTimeout(function(){
+                       domConstruct.destroy(iframe);
+                    }, 1);
+                });
+   
+                form.submit();
+                domConstruct.destroy(form);     
+
+                return id;
+            },
+            cancel: function(id){        
+                if (id in this._inputs){
+                    delete this._inputs[id];
+                }        
+
+                var iframe = document.getElementById(id);
+                if (iframe){
+                    // to cancel request set src to something else
+                    // we use src="javascript:false;" because it doesn't
+                    // trigger ie6 prompt on https
+                    iframe.setAttribute('src', 'javascript:false;');
+
+                    domConstruct.destroy(iframe);
+                }
+            },
+            getName: function(id){
+                // get input value and remove path to normalize
+                return this._inputs[id].value.replace(/.*(\/|\\)/, "");
+            },  
+            _attachLoadEvent: function(iframe, callback){       
+
+                on(iframe,'load',function(){
+                    if(!this.parentNode) return;
+                    
+                    if (this.contentDocument &&
+                        this.contentDocument.body &&
+                        this.contentDocument.body.innerHTML == "false"){
+
+                        return;
+                    }
+                    
+                    callback();
+                });
+                
+            },
+            /**
+             * Returns json object received by iframe from server.
+             */
+            _getIframeContentJSON: function(iframe){
+                // iframe.contentWindow.document - for IE<7
+                var doc = iframe.contentDocument ? iframe.contentDocument: iframe.contentWindow.document,
+                    response;
+
+                try{
+                    response = eval("(" + doc.body.innerHTML + ")");
+                } catch(err){
+                    response = {};
+                }
+
+                return response;
+            },
+            /**
+             * Creates iframe with unique name
+             */
+            _createIframe: function(id){
+                // src="javascript:false;" removes ie6 prompt on https
+               // var iframe = domConstruct.toDom('<iframe src="javascript:false;" name="' + id + '" />');
+                var iframe = domConstruct.create('iframe');
+
+                iframe.setAttribute('src',"javascript:false");
+                iframe.name = id;
+                iframe.setAttribute('id',id);
+
+                iframe.style.display = 'none';
+                document.body.appendChild(iframe);
+                
+                return iframe;
+            },
+            /**
+             * Creates form, that will be submitted to iframe
+             */
+            _createForm: function(iframe, params){
+                // We can't use the following code in IE6
+                // var form = document.createElement('form');
+                // form.setAttribute('method', 'post');
+                // form.setAttribute('enctype', 'multipart/form-data');
+                // Because in this case file won't be attached to request
+                var form = domConstruct.toDom('<form method="post" enctype="multipart/form-data"></form>');
+
+                var queryString = '?';
+                for (var key in params){
+                    queryString += '&' + key + '=' + encodeURIComponent(params[key]);
+                }
+                
+                form.setAttribute('action', this._options.action + queryString);
+                form.setAttribute('target', iframe.name);
+                form.style.display = 'none';
+                document.body.appendChild(form);
+
+                return form;
             }
         };
 
@@ -326,10 +486,11 @@ define(['dojo/_base/declare','dijit/_WidgetBase','dijit/_TemplatedMixin',
           *@FileUpload core class
           */
         var FileUploader = declare('ah/unit/Upload',[_WidgetBase,_TemplateMixin],{
-
+            
+            // before btn, btn-3 class would be ui-upload-button
             templateString : '<div class="ui-uploader">' + 
                             '<div class="ui-upload-drop-area" data-dojo-attach-point="dropEl"><span>Drop files here to upload</span></div>' +
-                            '<div class="ui-upload-button" data-dojo-attach-point="btnEl">${btnText}</div>' +
+                            '<div class="btn btn-3" data-dojo-attach-point="btnEl">${btnText}</div>' +
                             '<ul class="ui-upload-list" data-dojo-attach-point="listEl"></ul>' + 
                          '</div>',
 
@@ -347,6 +508,8 @@ define(['dojo/_base/declare','dijit/_WidgetBase','dijit/_TemplatedMixin',
             multiple : false,
 
             limit : 1,
+
+            typeName : 'file',
 
             messages: {
                 typeError: 'file type error',
@@ -392,7 +555,7 @@ define(['dojo/_base/declare','dijit/_WidgetBase','dijit/_TemplatedMixin',
                     onChange: function(input){
                         self._onInputChange(input);
                     },
-                    name : this.name || 'file'
+                    name : this.typeName
                 });        
 
                 if(this.dnd){
@@ -425,6 +588,7 @@ define(['dojo/_base/declare','dijit/_WidgetBase','dijit/_TemplatedMixin',
                 }
 
                 var handler = new handlerClass({
+                    name : this.typeName,
                     action: this.action,            
                     onProgress: function(id, fileName, loaded, total){
                         // is only called for xhr upload

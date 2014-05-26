@@ -1,0 +1,67 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>IP Object Widget</title>
+	<script type="text/javascript">
+	var dojoConfig = {
+		async : true,
+		baseUrl : "resource/script",
+		//tlmSiblingOfDojo : false,
+		//cacheBust: true,
+		packages : [ {
+			name : "dojo",
+			location : "dojo"
+		}, {
+			name : "dijit",
+			location : "dijit"
+		}, {
+			name : "dojox",
+			location : "dojox"
+		},{
+			name : "ah",
+			location : "ah"
+		} ]
+	};
+	</script>
+	<style type="text/css">
+		*{margin:0;padding:0}
+		body{font:12px/1.5 Arial;padding-left:50px}
+		ul{list-style: none}
+		input[type="text"]{
+			font-family: 'Helvetica';
+			font-size: 13px;
+			color: #393939;
+			border-color: #CCCCCC;
+			border-width : 1px;
+			height: 20px;
+			//padding: 4px 6px;
+			padding : 4px 0;
+			line-height: 20px;
+		}
+		
+	.ports-wrap{
+	width : 300px;
+	height : 200px;
+	border : 1px solid #ddd;
+}
+
+
+.ui-selectable-helper{
+	position : absolute;
+	z-index : 100;
+	border : 1px dotted #000;
+}
+	</style>
+</head>
+<body>
+	<div class="ports-wrap" id="h"></div>
+	<script src="resource/script/dojo/dojo.js"></script>
+	
+	<script>
+		require(['ah/unit/MouseSelect'],function(MouseSelect){
+			new MouseSelect(document.getElementById('h'));
+		});
+	</script>
+</body>
+</html>
