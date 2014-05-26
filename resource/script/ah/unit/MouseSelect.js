@@ -13,34 +13,48 @@ define(["dojo/_base/declare",
 			postscript : function(el,opts){
 				this.el = el;
 
+				for(var i in opts){
+					this[i] = opts[i];
+				}
+
 				this._bindUI();
 			},
 
 			_bindUI : function(){
 				this._own(
-					on(this.el,'mousedown',lang.hitch(this,this._mouseStart)),	
-					on(document,'mousemove',lang.hitch(this,this._mouseDrag)),	
-					on(document,'mouseup',lang.hitch(this,this._mouseStop))	
-				);
+					on(this.el,'mousedown',lang.hitch(this,this._mouseStart)),
+					on(this.el,'start',lang.hitch(this,this.mouseStart)),
+					on(this.el,'drag',lang.hitch(this,this.mouseDrag)),
+					on(this.el,'stop',lang.hitch(this,this.mouseStop))
+				)
 			},
 
 			_mouseStart : function(e){
+
 				this.dragable = true;
 
 				this.ops = [e.pageX,e.pageY];
 				
-				this.helper = this._createHelper();
-				domStyle.set(this.helper,{
+				// create helper and set style to it
+				domStyle.set(this.helper = this._createHelper(),{
 					width : 0,
 					height : 0,
 					left : e.pageX + 'px',
 					top : e.pageY + 'px'
 				});
+
+				// attach events
+				this._moveEv = on(document,'mousemove',lang.hitch(this,this._mouseDrag));
+				this._upEv = on(document,'mouseup',lang.hitch(this,this._mouseStop));
+
+				// fire start event
+				on.emit(this.el,'start');
 			},
 
 			_mouseDrag : function(e){
+
 				if(!this.dragable) return;
-				console.log('move');
+				//console.log('move');
 				var x1 = this.ops[0],
 					y1 = this.ops[1],
 					x2 = e.pageX,
@@ -55,13 +69,26 @@ define(["dojo/_base/declare",
 					left : x1 + 'px',
 					top : y1 + 'px'
 				});
+
+				// for interface data use
+				this._rect = {x1 : x1, y1 : y1, x2 : x2, y2 : y2};
+
+				// fire drag events
+				on.emit(this.el,'drag');
+
 			},
 
 			_mouseStop : function(e){
 				
 				this._destroyHelper();
 				this.dragable = false;
-				console.log('up');
+
+				// unattach events
+				this._moveEv.remove();
+				this._upEv.remove();
+
+				// fire stop listener
+				on.emit(this.el,'stop',{rect : this._rect});
 			},
 
 			_createHelper : function(){
@@ -72,13 +99,27 @@ define(["dojo/_base/declare",
 				return help;
 			},
 
+			_own : function(){
+				array.forEach(arguments,lang.hitch(this,function(handler){
+					(this._events || (this._events = [])).push(handler);
+				}));
+			},
+
 			_destroyHelper : function(){
 				domCon.destroy(this.helper);
 			},
 
-			_own : function(){
-				this._events = [].slice.apply(arguments);
-			}
+			destroy : function(){
+				//this._downEv.remove();
+				array.forEach(this._events,function(handler){ handler.remove(); });
+				this._destroyHelper();
+			},
+
+			mouseStart : function(){},
+
+			mouseDrag : function(){},
+
+			mouseStop : function(){}
 			
 		});
 

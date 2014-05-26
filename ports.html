@@ -60,7 +60,11 @@
 	
 	<script>
 		require(['ah/unit/MouseSelect'],function(MouseSelect){
-			new MouseSelect(document.getElementById('h'));
+			new MouseSelect(document.getElementById('h'),{
+				mouseStop : function(e){
+					console.log(e);
+				}
+			});
 		});
 	</script>
 </body>
